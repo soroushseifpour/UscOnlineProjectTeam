@@ -1,0 +1,89 @@
+﻿@model IEnumerable<UscProject.Models.JobCategoryTB>
+@{
+    ViewBag.Title = "JobCategory";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div class="row">
+
+    <!--Basic Start-->
+    <div class="col-12 mb-30">
+
+        <div class="box">
+            <div class="box-head">
+                <h3 class="title">پایه</h3>
+            </div>
+
+            <div class="box-body">
+                <div class="row">
+                    <button class="col-sm-2 col-12 mb-20 button button-success" onclick="Create()" ><span>گروه جدید اضافه کنید</span></button>
+                </div>
+                <table id="tableplace" class="table footable"  data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
+                    <thead>
+                        <tr>
+                            <th data-name="نام">نام</th>
+                            <th style="text-align:center" data-name="حالت">حالت</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyplace">
+                        @foreach (var g in Model)
+                        {
+                            <tr>
+                                <td>@g.JobCategory</td>
+                                <td style="text-align:center"><a onclick="Delete(this,@g.JobID)"><span class="badge badge-pill badge-danger">پاک کنید</span></a> || <a onclick="Edit(@g.JobID)"><span class="badge badge-pill badge-warning">ادیت کنید</span></a></td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="MyModal">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalTitle">مودال کوچک</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                
+            </div>
+        </div>
+    </div>
+</div>
+@section PageScript
+{
+
+    <script src="~/Areas/Admin/Content/assets/js/plugins/moment/moment.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/plugins/footable/footable.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/plugins/footable/footable.active.js"></script>
+    <script>
+        function Delete(e, id) {
+            if (confirm("پاک شود ؟")) {
+
+                $.get("/Admin/Jobs/DeleteJob/" + id, function () {
+                    $(e).parent().parent().remove();
+                });
+            }
+        };
+        function Create() {
+
+                $.get("/Admin/Jobs/AddJob", function (res) {
+                    $("#MyModal").modal();
+                    $("#myModalTitle").html("Add Job Group");
+                    $("#myModalBody").html(res);
+                });
+
+        };
+        function Edit(id) {
+            $.get("/Admin/Jobs/EditJob/" + id, function (res) {
+                $("#MyModal").modal();
+                $("#myModalTitle").html("Edit Job Group");
+                $("#myModalBody").html(res);
+
+            });
+        }
+    </script>
+}

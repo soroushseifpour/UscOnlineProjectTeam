@@ -1,0 +1,114 @@
+﻿@model UscProject.Models.ResumeTB
+@{
+    ViewBag.Title = "CandidatesDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="candidate-details pt-100 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="candidate-profile">
+                    <img src="@ViewBag.Pic" alt="candidate image">
+                    <h3>@Model.FirstName @Model.LatsName</h3>
+                    <p>@Model.AbilityDescription</p>
+
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class='bx bxs-location-plus'></i>
+                                @ViewBag.Email
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="candidate-social">
+                        <a href="#" target="_blank"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="candidate-info-text">
+                    <h3>درباره من</h3>
+                    <p> @Model.Age ساله هستم</p>
+                     @if (Model.EnglishAbility == true)
+                     {
+                     <p>مسلط به زبان انگلیسی</p>
+                     }
+                     else 
+                     {
+                        <p>تسلط کافی به انگلیسی ندارم</p>
+                     }
+                </div>
+
+                <div class="candidate-info-text candidate-education">
+                    <h3>آموزش</h3>
+                    <div class="education-info">
+                        <h4>دانشگاه</h4>
+                        <p>دانشگاه @Model.University، ایران</p>
+                        @if (Model.EduDegree.ToString() == "diploma")
+                        {
+                            <span>دیپلم</span>
+                        }
+                        else
+                        {
+                            if (Model.EduDegree.ToString() == "bachlor")
+                            {
+                                <span>کارشناسی</span>
+                            }
+                            else
+                            {
+                                <span>کارشناسی ارشد</span>
+                            }
+
+                        }
+
+                    </div>
+                </div>
+
+                <div class="candidate-info-text candidate-experience">
+                    <h3>تجربه</h3>
+
+                    <ul>
+
+                        @{
+                            char[] delimiterCharsEXP = { ',', '،' };
+                            string[] wordsEXP = Model.Experience.Split(delimiterCharsEXP);
+
+                            foreach (var w in wordsEXP)
+                            {
+                                <li>@w</li>
+                            }
+                        }
+                    </ul>
+                </div>
+
+                <div class="candidate-info-text candidate-skill">
+                    <h3>مهارت ها</h3>
+
+                    <ul>
+                        @{
+                            char[] delimiterChars = { ',', '،' };
+                            string[] words = Model.ExtraAbility.Split(delimiterChars);
+
+                            foreach (var w in words)
+                            {
+                                <li>@w</li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+
+                <div class="candidate-info-text text-center">
+                    <div class="theme-btn">
+                        <a href="#" class="default-btn">استخدام کن</a>
+                        <a href="#" class="default-btn">دانلود رزومه</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Candidate Details End -->

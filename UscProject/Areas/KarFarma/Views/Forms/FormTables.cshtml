@@ -1,0 +1,85 @@
+﻿@model IEnumerable<UscProject.Areas.KarFarma.ViewModel.FormTable>
+@{
+    ViewBag.Title = "FormTables";
+    Layout = "~/Areas/KarFarma/Views/Shared/_KarFarmaLayout.cshtml";
+}
+
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">جداول <span>/ تصویر زمینه</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="row">
+
+    <!--Basic Start-->
+    <div class="col-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h3 class="title">پایه</h3>
+            </div>
+            <div class="box-body">
+
+                <table class="table footable" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
+                    <thead>
+                        <tr>
+                            <th data-name="نام">شماره</th>
+                            <th data-name="موقعیت">تاریخ تشکیل</th>
+                            <th data-name="موقعیت">اکشن</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var g in Model)
+                        {
+                            <tr>
+                                <td>@g.count</td>
+                                <td>@g.DateOfMake</td>
+                                <td><a onclick="view(@g.formid)"><span class="badge badge-pill badge-light">مشاهده </span></a> || <a href="@Url.Action("EditForms","Froms",new { id=g.formid })" class="btn-delete" ><span class="badge badge-pill badge-danger">پاک کردن</span></a></td>
+
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!--Basic End-->
+</div>
+<div class="modal fade" id="MyModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+@section PageScript
+{
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/moment/moment.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/footable/footable.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/footable/footable.active.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/datatables/datatables.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/datatables/datatables.active.js"></script>
+
+    <script>
+        function view(id) {
+            $.get("/KarFarma/Forms/ShowFormsDetails/" + id, function (res) {
+
+                $("#MyModal").modal();
+                $("#myModalBody").html(res);
+
+            });
+        }
+        
+    </script>
+}

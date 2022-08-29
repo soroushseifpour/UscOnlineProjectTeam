@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>آدومکس - قالب مدیریتی ریسپانسیو بوت استرپ 4</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/Areas/KarFarma/Content/assets/images/favicon.ico">
+
+    <!-- CSS
+    ============================================ -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/vendor/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/vendor/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/vendor/themify-icons.css">
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/vendor/cryptocurrency-icons.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/plugins/plugins.css">
+
+    <!-- Helper CSS -->
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/helper.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/style.css">
+
+    <!-- Custom Style CSS Only For Demo Purpose -->
+    <link id="cus-style" rel="stylesheet" href="~/Areas/KarFarma/Content/assets/css/style-primary.css">
+
+
+</head>
+
+<body dir="rtl" class="skin-dark">
+
+    <div class="main-wrapper">
+
+
+        <!-- Header Section Start -->
+        @Html.Action("Header", "Panel")
+        <!-- Header Section End -->
+        <!-- Side Header Start -->
+        <div class="side-header show" style="z-index:1">
+            <button class="side-header-close"><i class="zmdi zmdi-close"></i></button>
+            <!-- Side Header Inner Start -->
+            <div class="side-header-inner custom-scroll">
+
+                <nav class="side-header-menu" id="side-header-menu">
+                    <ul>
+                        <li>
+                            <a href="/KarFarma/Panel/Index"><i class="ti-home"></i> <span>داشبورد</span></a>
+                        </li>
+                        <li><a href="/KarFarma/Panel/PersonalInformation"><i class="ti-palette"></i> <span>پروفایل</span></a></li>
+                        <li class="has-sub-menu">
+                            <a href="#"><i class="ti-package"></i> <span>جدول ها</span></a>
+                            <ul class="side-header-sub-menu">
+                                <li><a href="/KarFarma/Forms/FormTables"><span>فرم های من</span></a></li>
+                                <li><a href="/KarFarma/Resume/ResumeTables"><span>رزومه های ارسالی</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/KarFarma/Order/ShoppingList"><i class="ti-shopping-cart"></i> <span>لیست سفارشات</span></a>
+                        <li><a href="/KarFarma/Forms/AddForms"><i class="ti-shopping-cart"></i> <span>فرم جدید</span></a>
+                    </ul>
+                </nav>
+
+            </div><!-- Side Header Inner End -->
+        </div><!-- Side Header End -->
+        <!-- Content Body Start -->
+        <div class="content-body">
+            @RenderBody()
+
+        </div>
+    </div>
+    <!-- JS
+    ============================================ -->
+    <!-- Global Vendor, plugins & Activation JS -->
+    <script src="~/Areas/KarFarma/Content/assets/js/vendor/modernizr-3.6.0.min.js"></script>
+
+    <script src="~/Areas/KarFarma/Content/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/vendor/popper.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/vendor/bootstrap.min.js"></script>
+    <!--Plugins JS-->
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/tippy4.min.js.js"></script>
+    <!--Main JS-->
+    <script src="~/Areas/KarFarma/Content/assets/js/main.js"></script>
+
+    <!-- Plugins & Activation JS For Only This Page -->
+    <!--Moment-->
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/moment/moment.min.js"></script>
+
+    <!--Daterange Picker-->
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/daterangepicker/daterangepicker.active.js"></script>
+
+    <!--Echarts-->
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/chartjs/Chart.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/chartjs/chartjs.active.js"></script>
+
+    <!--VMap-->
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/vmap/jquery.vmap.min.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/vmap/maps/jquery.vmap.world.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/vmap/maps/samples/jquery.vmap.sampledata.js"></script>
+    <script src="~/Areas/KarFarma/Content/assets/js/plugins/vmap/vmap.active.js"></script>
+
+    @RenderSection("PageScript", false)
+</body>
+
+
+</html>
+
+

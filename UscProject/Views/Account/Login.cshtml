@@ -1,0 +1,72 @@
+﻿@model UscProject.ViewModel.Loginvm
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page-title title-bg12">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>ورود</h2>
+            <ul>
+                <li>
+                    <a href="index.html">صفحه اصلی</a>
+                </li>
+                <li>ورود</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Sign In Section Start -->
+<div class="signin-section ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 offset-md-2 offset-lg-3">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                <div class="signin-form">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.RememberMe)
+                                @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signin-btn text-center">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit">ورود</button>
+                        </div>
+                    </div>
+
+                </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign In Section End -->
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

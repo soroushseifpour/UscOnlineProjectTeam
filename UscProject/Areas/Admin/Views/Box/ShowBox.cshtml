@@ -1,0 +1,63 @@
+﻿@model UscProject.Models.BoxCategory
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>مشخصات بسته های اگهی</title>
+    <style>
+
+        #t1 {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+            #t1 th {
+                border: 1px solid white;
+                border-collapse: collapse;
+                text-align: left;
+            }
+
+            #t1 td {
+                border: 1px solid white;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+
+    </style>
+</head>
+<body>
+    <h4>بسته اگهی</h4>
+
+    <table id="t1" style="width:100%">
+        <tr>
+            <th>اسم</th>
+            <td>@Model.BoxName</td>
+        </tr>
+        <tr>
+            <th>قیمت</th>
+            <td>@Model.Price</td>
+        </tr>
+
+        <tr>
+            <th>مهلت استفاده</th>
+            <td>@Model.DatePermission روز</td>
+        </tr>
+
+        <tr>
+            <th>تعداد اگهی</th>
+            <td>@Model.CountPermisson</td>
+        </tr>
+
+        <tr>
+            <th>توضیحات تکمیلی</th>
+            <td>@Model.BoxDescription</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+

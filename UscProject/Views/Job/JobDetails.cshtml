@@ -1,0 +1,259 @@
+﻿@model UscProject.Models.FormTB
+@{
+    ViewBag.Title = "JobDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="job-details ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="job-details-text">
+                            <div class="job-card">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2">
+                                        <div class="company-logo">
+                                            <img src="@ViewBag.img" alt="logo">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="job-info">
+                                            <h3>@Model.JobDescRiption</h3>
+                                            <ul>
+                                                <li>
+                                                    <i class='bx bx-location-plus'></i>
+                                                    @Model.Region ، @Model.City
+                                                </li>
+                                                <li>
+                                                    <i class='bx bx-filter-alt'></i>
+                                                    @Model.JobCategoryTB.JobCategory
+                                                </li>
+                                                <li>
+                                                    <i class='bx bx-briefcase'></i>
+                                                    آزاد
+                                                </li>
+                                            </ul>
+
+                                            <span>
+                                                <i class='bx bx-paper-plane'></i>
+                                                قبل از درخواست: @Model.RequestDtae
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-text">
+                                <h3>شرح</h3>
+                                <p>@Model.FormText</p>
+
+                            </div>
+
+                            <div class="details-text">
+                                <h3>مزایا</h3>
+                                <ul>
+                                    @{
+                                        if (Model.Benefits != null)
+                                        {
+
+                                            char[] delimiterCharsEXP = { ',', '،' };
+                                            string[] wordsEXP = Model.Benefits.Split(delimiterCharsEXP);
+
+                                            foreach (var w in wordsEXP)
+                                            {
+                                                <li>
+                                                    <i class='bx bx-check'></i>
+                                                    @w
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <i class='bx bx-check'></i>
+                                                .....
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                            <div class="details-text">
+                                <h3>نرم افزارهای ورد نیاز</h3>
+                                <ul>
+                                    @{
+                                        if (Model.Requirements != null)
+                                        {
+
+                                            char[] delimiterCharsEXP = { ',', '،' };
+                                            string[] wordsEXP = Model.Requirements.Split(delimiterCharsEXP);
+
+                                            foreach (var w in wordsEXP)
+                                            {
+                                                <li>
+                                                    <i class='bx bx-check'></i>
+                                                    @w
+                                                </li>
+                                            }
+                                        }
+                                        else
+                                        {
+
+                                            <li>
+                                                <i class='bx bx-check'></i>
+                                                .....
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+
+                            <div class="details-text">
+                                <h3>جزئیات شغل</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span>شرکت</span></td>
+                                                    <td>@ViewBag.company</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>موقعیت</span></td>
+                                                    <td>@Model.Region ، @Model.City</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>نوع شغل</span></td>
+                                                    <td>@Model.WorkingDays</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>ایمیل</span></td>
+                                                    <td><a href="">@ViewBag.email</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><span>تجربه</span></td>
+                                                    <td>2 سال</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>متناسب</span></td>
+                                                    <td>@Model.Gender</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>حقوق</span></td>
+                                                    <td>100000 تومان</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>وبسایت</span></td>
+                                                    <td><a href="#">@ViewBag.site</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="theme-btn">
+                                <button class="default-btn  btn-edit">
+                                    ارسال رزومه
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="job-sidebar">
+                    <h3>ارسال توسط</h3>
+                    <div class="posted-by">
+                        <img src="@ViewBag.img" alt="client image">
+                        <h4>@ViewBag.company</h4>
+                    </div>
+                </div>
+
+                <div class="job-sidebar">
+                    <h3>دفتر مرکزی</h3>
+                    <p>@ViewBag.address</p>
+                </div>
+
+                <div class="job-sidebar">
+                    <h3>کلمات کلیدی</h3>
+                    <ul>
+                        <li>
+                            <a href="#">@Model.JobCategoryTB.JobCategory</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job-sidebar social-share">
+                    <h3>اشتراک گذاری</h3>
+                    <ul>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="bx bxl-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@section Scripts{
+
+    <script>
+        $(function () {
+            $(document).ready(function () {
+                $(document).on("click", ".btn-edit", function (e) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Job/AddForm",
+                        data: JSON.stringify({
+                            FormID: @Model.FormID,
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (e) {
+                            if (e.Status) {
+                                alert('رزومه ارسال شد');
+                            }
+                            else {
+
+                                alert(e.Message);
+
+                            }
+                        },
+                        error: function () {
+                            alert('خطا در ارتباط با سرور');
+                        }
+                    });
+                });
+
+            });
+        });
+
+    </script>
+
+}

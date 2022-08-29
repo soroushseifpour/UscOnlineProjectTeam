@@ -1,0 +1,63 @@
+﻿@model PagedList.PagedList<UscProject.ViewModel.Candidatesvm>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Candidates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page-title title-bg7">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>داوطلب ها</h2>
+            <ul>
+                <li>
+                    <a href="index.html">صفحه اصلی</a>
+                </li>
+                <li>داوطلب ها</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+<section class="candidate-style-two pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="candidate-card">
+                        <div class="candidate-img">
+                            <img src="@Html.DisplayFor(modelItem=>item.ImageName)" alt="candidate image">
+                        </div>
+                        <div class="candidate-text">
+                            <h3>
+                                <a href="@Url.Action("CandidatesDetails",new { id=item.id})">@Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</a>
+                            </h3>
+                            <ul>
+                                <li>
+                                    @Html.DisplayFor(modelItem => item.Ability)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="candidate-social">
+                            <a alt="ایمیل"><i class="bx button-yahoo"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+    <br />
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @Html.PagedListPager(Model, page => Url.Action("Candidates",
+            new { page }))
+        </ul>
+    </nav>
+</section>
+<!-- Candidates Section End -->

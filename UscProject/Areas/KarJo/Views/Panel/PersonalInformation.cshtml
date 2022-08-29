@@ -1,0 +1,96 @@
+﻿@model UscProject.Models.UserTB
+@{
+    ViewBag.Title = "PersonalInformation";
+    Layout = "~/Areas/KarJo/Views/Shared/_KarJoLayout.cshtml";
+
+    string path;
+    if (Model.ImageName == true)
+    {
+        path = Url.Content("~/Files/UserPictures/Custom/KarJo" + Model.PictureName);
+    }
+    else
+    {
+        path = Url.Content("~/Files/UserPictures/Default/UserProfile.jpg");
+    }
+}
+<div class="col-xlg-12 col-12 mb-60 input-group">
+
+    @using (Html.BeginForm("PersonalInformation", "Panel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.UserID);
+        @Html.HiddenFor(m => m.RoleID);
+        @Html.HiddenFor(m => m.RegesterDate);
+        @Html.HiddenFor(m => m.IsActive);
+        @Html.HiddenFor(m => m.ActiveCode);
+        @Html.HiddenFor(m => m.ImageName);
+        @Html.HiddenFor(m => m.PictureName);
+        <div class="row">
+            <div class="col-xlg-12 col-lg-6 col-12 mb-30 ">
+                <div class="box">
+                    <div class="box-head">
+                        <h3 class="title">اطلاعات ادمین</h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="form">
+                            <div class="row row-10 mbn-20">
+                                <div class="col-sm-6 col-12 mb-20"><input type="text" name="UserName" class="form-control" value="@Model.UserName">نام کاربری</div>
+                                <div class="col-12 mb-20"><input type="email" name="Email" class="form-control" value="@Model.Email">ایمیل</div>
+                                <div class="col-sm-6 col-12 mb-20"><input type="password" name="Password" class="form-control" value="@Model.Password">پسورد</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-10 mb-20">
+                        <input type="submit" class="button button-primary button-outline" id="form-uploadpic" value="ذخیره تغییرات">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xlg-12 col-lg-6 col-12 mb-30">
+
+                <div class="col-12 mb-30">
+                    <div class="box">
+
+                        <div class="box-head">
+                            <h3 class="title">از بین بردن</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="box-body">
+                                    <div class="row mbn-20">
+
+                                        <!--Default Uploader Start-->
+                                        <div class="col-lg-6 col-12 mb-20">
+                                            <h6 class="mb-15">فایل پیش بارگذاری شده</h6>
+
+                                            <input class="dropify" type="file" name="ImgUp" id="ImgUp" data-default-file="@path" />
+
+                                        </div>
+                                        <!--Default Uploader End-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!--Dropify End-->
+@section PageScript
+{
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/filepond/filepond.min.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/filepond/filepond-plugin-image-exif-orientation.min.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/filepond/filepond-plugin-image-preview.min.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/filepond/filepond.active.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/dropify/dropify.min.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/js/plugins/dropify/dropify.active.js"></script>
+    <script src="~/Areas/KarJo/Content/assets/AjaxForm/jquery.form.min.js"></script>
+
+
+}

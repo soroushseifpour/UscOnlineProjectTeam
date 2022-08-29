@@ -1,0 +1,114 @@
+﻿@model UscProject.Models.UserTB
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/KarFarma/Views/Shared/_KarFarmaLayout.cshtml";
+    string path;
+    if (Model.ImageName == true)
+    {
+        path = Url.Content("~/Files/UserPictures/Custom/Karfarma/" + Model.PictureName);
+    }
+    else
+    {
+        path = Url.Content("~/Files/UserPictures/Default/UserProfile.jpg");
+    }
+
+
+}
+<div class="row">
+    <div class="col-lg-6 col-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">من</h4>
+            </div>
+            <div class="box-body">
+
+                <div class="avatar-wrap d-flex align-items-center flex-wrap mbn-10">
+
+                    <div class="avatar avatar-xxl mr-10 mb-10">
+                        <img src="@path" alt="">
+                        <span class="status"></span>
+                    </div>
+
+                    <div class="row mbn-15">
+                        <div class="col-12 mb-15"><input type="text" class="form-control" disabled placeholder="@ViewBag.CompanyName"></div>
+                        <div class="col-12 mb-15"><input type="text" class="form-control" disabled placeholder="@ViewBag.Email"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xlg-6 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>مجموع رزومه های دریافتی</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.ResumeSent</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width:@ViewBag.ResumeSent%;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xlg-6 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>مجموع فرم های ایجاد شده</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.Forms </h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width:@ViewBag.ResumeSent%;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    @*<div class="col-xlg-6 col-md-6 col-12 mb-30">
+            <div class="top-report">
+
+                 Head
+                <div class="head">
+                    <h4>مجموع بازدید کننده</h4>
+                    <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+                </div>
+
+                 Content
+                <div class="content">
+                    <h5>امروزه</h5>
+                    <h2>100,560.00</h2>
+                </div>
+
+                 Footer
+                <div class="footer">
+                    <div class="progess">
+                        <div class="progess-bar" style="width: 92%;"></div>
+                    </div>
+                    <p>92٪ از بازدید کننده منحصر به فرد</p>
+                </div>
+
+            </div>
+        </div>*@
+</div>
+
+

@@ -1,0 +1,89 @@
+﻿@model UscProject.Models.BoxCategory
+@{
+    ViewBag.Title = "EditBox";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3>فرم جعبه @Model.BoxName </h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="row">
+
+    <!--Form controls Start-->
+    <div class="col-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h3 class="title">اطلاعات</h3>
+            </div>
+            <div class="box-body">
+                <div class="row mbn-20">
+
+                    <!--Form Field-->
+                    <div class="col-lg-12 col-12 mb-20">
+
+                        <h6 class="mb-15"></h6>
+
+                        <div class="row mbn-15">
+                            <div class="col-12 mb-15">اسم بسته<input id="BoxName" type="text" class="form-control" value="@Model.BoxName"></div>
+                            <div class="col-12 mb-15"> مهلت استفاده از بسته<input id="DatePermission" type="text" class="form-control" value="@Model.DatePermission"></div>
+                            <div class="col-12 mb-15"> قیمت بسته<input id="Price" type="text" class="form-control" value="@Model.Price"></div>
+                            <div class="col-12 mb-15">تعداد اگهی مجاز<input id="CountPermisson" type="text" class="form-control" value="@Model.CountPermisson"></div>
+                            <div class="col-12 mb-15">متن تکمیلی<textarea id="BoxDescription" class="form-control">@Model.BoxDescription</textarea></div>
+                        </div>
+                        <br />
+                        <button class="button button-success" id="submit-form"><span>اعمال تغییرات</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section PageScript
+{
+    <script>
+    $(function () {
+    $(document).ready(function () {
+    $(document).on("click", "#submit-form", function (e) {
+        $.ajax({
+    type: "POST",
+        url: "/Admin/Box/EditBoxDetails",
+    data: JSON.stringify({
+    BoxCategoryID:@Model.BoxCategoryID,
+        BoxName: $("#BoxName").val(),
+        BoxDescription: $("#BoxDescription").val(),
+        Price: $("#Price").val(),
+        DatePermission: $("#DatePermission").val(),
+        CountPermisson: $("#CountPermisson").val()
+    }),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+    success: function (e) {
+    if (e.Status) {
+    alert('تغییرات ذخیره شد');
+    }
+    else {
+    alert('تغییرات اعمال نشد');
+
+    }
+    },
+    error: function () {
+    alert('خطا در ارتباط با سرور');
+    }
+    });
+    });
+
+    });
+    });
+    </script>
+}
+

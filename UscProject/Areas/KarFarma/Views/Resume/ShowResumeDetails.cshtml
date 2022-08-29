@@ -1,0 +1,88 @@
+﻿@model UscProject.Models.ResumeTB
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>مشخصات بسته های اگهی</title>
+    <style>
+
+        #t1 {
+            border: 1px solid white;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+            #t1 th {
+                border: 1px solid white;
+                border-collapse: collapse;
+                text-align: center;
+            }
+
+            #t1 td {
+                border: 1px solid white;
+                border-collapse: collapse;
+                text-align: center;
+                padding: 5px;
+            }
+    </style>
+</head>
+<body>
+    <h4>بسته اگهی</h4>
+
+    <table id="t1" style="width:100%">
+        <tr>
+            <th>نام</th>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <th>نام خانوادگی</th>
+            <td>@Model.LatsName</td>
+        </tr>
+
+        <tr>
+            <th>سن</th>
+            <td>@Model.Age</td>
+        </tr>
+
+        <tr>
+            <th>تحصیلات</th>
+            <td>@Model.EduDegree</td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>@Model.EduDegree</td>
+        </tr>
+
+        <tr>
+            <th>تجربه</th>
+            <td>@Model.Experience</td>
+        </tr>
+        <tr>
+            <th>توضیحات تکمیلی</th>
+            <td>@Model.ExtraAbility</td>
+        </tr>
+        <tr>
+            <th>مسلط به زبان</th>
+            @if (Model.EnglishAbility)
+            {
+                <td>بله</td>
+            }
+            else
+            {
+                <td>خیر</td>
+            }
+        </tr>
+        <tr>
+            @Model.University
+        </tr>
+    </table>
+
+</body>
+</html>
+
+
+

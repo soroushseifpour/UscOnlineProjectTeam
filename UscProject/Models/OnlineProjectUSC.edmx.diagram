@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="32d4d599be9546c8b9a32d427ba353cb" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.EmployerTB" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.JobCategoryTB" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.RoleTB" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.ResumeEmployeeTB" Width="1.5" PointX="7.5" PointY="10.375" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.TheTotallPriceOfEach" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.BoxCategory" Width="1.5" PointX="8.25" PointY="13.75" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.EmployeeTB" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.UserTB" Width="1.5" PointX="3" PointY="3" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_EmployeeTB_UserTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_EmployerTB_UserTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_UserTB_RoleTB" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.OrderDetailTB" Width="1.5" PointX="10.5" PointY="8.875" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_OrderDetailTB_BoxCategory" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_OrderDetailTB_EmployeeTB" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.FormDetailTB" Width="1.5" PointX="15" PointY="8" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_FormDetailTB_EmployeeTB" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.ResumeTB" Width="1.5" PointX="3" PointY="7.875" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_EmployerTB_ResumeTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_ResumeEmployeeTB_ResumeTB" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.FormTB" Width="1.5" PointX="12.75" PointY="9.375" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_FormDetailTB_FormTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_FormTB_JobCategoryTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_FormTB_OrderDetailTB" />
+        <AssociationConnector Association="OnlineProjectUSCModel.FK_ResumeEmployeeTB_FormTB" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.CommentTB" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.TheTop5Employee" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="OnlineProjectUSCModel.ContactTB" Width="1.5" PointX="12.375" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

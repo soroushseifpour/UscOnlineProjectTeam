@@ -1,0 +1,88 @@
+﻿@model PagedList.PagedList<UscProject.ViewModel.JobListsvm>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "JobLists";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <section class="page-title title-bg6">
+        <div class="d-table">
+            <div class="d-table-cell">
+                <h2>جزئیات شغل</h2>
+                <ul>
+                    <li>
+                        <a href="index.html">صفحه اصلی</a>
+                    </li>
+                    <li>جزئیات شغل</li>
+                </ul>
+            </div>
+        </div>
+        <div class="lines">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </section>
+<!-- Page Title End -->
+<!-- Job Section End -->
+<section class="company-section company-style-two pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>مشاغلی که ممکن است در آن علاقمند باشید</h2>
+            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+
+                <div class="col-lg-12">
+                    <div class="job-card-two">
+                        <div class="row align-items-center">
+                            
+                            <div class="col-md-8">
+                                <div class="job-info">
+                                    <h3>
+                                        <a href="job-details.html">@item.jobs.JobDescRiption</a>
+                                    </h3>
+                                    <ul>
+                                        <li>
+                                            <i class='bx bx-briefcase'></i>
+                                            @item.jobcat
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-briefcase'></i>
+                                            35000 تومان - 38000 تومان
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-location-plus'></i>
+                                            @item.jobs.Region ، @item.jobs.City
+                                        </li>
+                                        <li>
+                                            <i class='bx bx-stopwatch'></i>
+                                            @item.jobs.RequestDtae
+                                        </li>
+                                    </ul>
+
+                                    <span>@item.jobs.WorkingDays</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="theme-btn text-right">
+                                    <a href="@Url.Action("JobDetails",new { id=item.jobs.FormID})" class="default-btn">
+                                        انتخاب شغل
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                @Html.PagedListPager(Model, page => Url.Action("JobLists",
+                new {id=ViewBag.id,img=ViewBag, page }))
+            </ul>
+        </nav>
+    </div>
+</section>

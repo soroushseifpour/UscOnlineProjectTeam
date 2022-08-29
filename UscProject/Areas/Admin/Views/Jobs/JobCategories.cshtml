@@ -1,0 +1,19 @@
+﻿@model IEnumerable<UscProject.Models.JobCategoryTB>
+<table id="tableplace" class="table footable" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
+    <thead>
+        <tr>
+            <th data-name="نام">نام</th>
+            <th style="text-align:center" data-name="حالت">حالت</th>
+        </tr>
+    </thead>
+    <tbody id="bodyplace">
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td>@g.JobCategory</td>
+                <td style="text-align:center"><a onclick="Delete(this,@g.JobID)"><span class="badge badge-pill badge-danger">پاک کنید</span></a> || <a onclick="Edit(@g.JobID)"><span class="badge badge-pill badge-warning">ادیت کنید</span></a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
