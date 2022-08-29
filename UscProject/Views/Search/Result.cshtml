@@ -1,0 +1,48 @@
+﻿@model IEnumerable<UscProject.Models.FormTB>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6">
+                <div class="job-card">
+                    <div class="row align-items-center">
+                   
+
+                        <div class="col-lg-6">
+                            <div class="job-info">
+                                <h3>
+                                    <a href="@Url.Action("JobDetails","Home",new { id=item.FormID})">@item.JobDescRiption</a>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <i class="bx bx-location-plus"></i>
+                                        @item.Region ، @item.City
+                                    </li>
+                                    <li>
+                                        <i class="bx bx-filter-alt"></i>
+                                        @item.JobCategoryTB.JobCategory
+                                    </li>
+                                    <li>
+                                        <i class="bx bx-briefcase"></i>
+                                        آزاد
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="job-save">
+                                <span>@item.WorkingDays</span>
+                                <a href="#">
+                                    <i class="bx bx-heart"></i>
+                                </a>
+                                <p>
+                                    <i class="bx bx-stopwatch"></i>
+                                    @item.RequestDtae
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

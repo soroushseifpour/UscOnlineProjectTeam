@@ -1,0 +1,68 @@
+﻿@model IEnumerable< UscProject.Areas.Admin.ViewModels.KarjoInformation>
+@{
+    ViewBag.Title = "KarjoTables";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3 class="title">جداول <span>/ تصویر زمینه</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="row">
+
+    <!--Basic Start-->
+    <div class="col-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h3 class="title">پایه</h3>
+            </div>
+            <div class="box-body">
+
+                <table class="table footable" data-paging="true" data-filtering="true" data-sorting="true" data-breakpoints='{ "xs": 480, "sm": 768, "md": 992, "lg": 1200, "xl": 1400 }'>
+                    <thead>
+                        <tr>
+                            <th data-name="نام">نام</th>
+                            <th data-name="نام">ایمیل</th>
+                            <th data-name="نام">تاریخ ثبت نام</th>
+                            <th data-name="نام">عملیات</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var g in Model)
+                        {
+                        <tr>
+                            <td>@g.UserName</td>
+                            <td>@g.Email</td>
+                            <td>@g.dateofregister</td>
+                            @if (g.id == null)
+                            {
+                                <td>رزومه ای ندارد</td>
+                            }
+                            else
+                            {
+                             <td><a href="@Url.Action("ShowKarjoInformation","KarJo", new { id = g.id})"><span class="badge badge-pill badge-success">مشاهده پروفایل</span></a></td>
+                            }
+                        </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Basic End-->
+    @section PageScript
+{
+        <script src="~/Areas/Admin/Content/assets/js/plugins/moment/moment.min.js"></script>
+        <script src="~/Areas/Admin/Content/assets/js/plugins/footable/footable.min.js"></script>
+        <script src="~/Areas/Admin/Content/assets/js/plugins/footable/footable.active.js"></script>
+    }

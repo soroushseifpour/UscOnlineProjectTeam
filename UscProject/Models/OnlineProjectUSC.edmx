@@ -1,0 +1,1322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OnlineProjectUSCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BoxCategory">
+          <Key>
+            <PropertyRef Name="BoxCategoryID" />
+          </Key>
+          <Property Name="BoxCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoxName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BoxDescription" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="DatePermission" Type="int" Nullable="false" />
+          <Property Name="CountPermisson" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentTB">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CommentEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommentUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CommentResponse" Type="nvarchar(max)" />
+          <Property Name="CommentDate" Type="datetime" Nullable="false" />
+          <Property Name="CommentResponseDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContactTB">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactPhone" Type="bigint" Nullable="false" />
+          <Property Name="ContactSubject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactText" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ContactDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeTB">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PhoneNumber" Type="bigint" />
+          <Property Name="Site" Type="varchar" MaxLength="150" />
+          <Property Name="Adress" Type="varchar" MaxLength="150" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="EmployerTB">
+          <Key>
+            <PropertyRef Name="EmployerID" />
+          </Key>
+          <Property Name="EmployerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResumeID" Type="int" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormDetailTB">
+          <Key>
+            <PropertyRef Name="FormDetailID" />
+          </Key>
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="FormDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmoloyeeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormTB">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Benefits" Type="nvarchar" MaxLength="500" />
+          <Property Name="WorkingDays" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="150" />
+          <Property Name="RequestDtae" Type="datetime" Nullable="false" />
+          <Property Name="FormText" Type="nvarchar" MaxLength="500" />
+          <Property Name="JobDescRiption" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="OrderDetailID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Requirements" Type="nvarchar" MaxLength="500" />
+          <Property Name="Abilities" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="JobCategoryTB">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobCategory" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderDetailTB">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BoxCategoryID" Type="int" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="int" />
+          <Property Name="BuyDate" Type="date" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResumeEmployeeTB">
+          <Key>
+            <PropertyRef Name="ResumeEmployeeID" />
+          </Key>
+          <Property Name="ResumeID" Type="int" />
+          <Property Name="FormID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ResumeEmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResumeTB">
+          <Key>
+            <PropertyRef Name="ResumeID" />
+          </Key>
+          <Property Name="ResumeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="LatsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="datetime" Nullable="false" />
+          <Property Name="EduDegree" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="AbilityDescription" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EnglishAbility" Type="bit" Nullable="false" />
+          <Property Name="ExtraAbility" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="University" Type="nvarchar" MaxLength="50" />
+          <Property Name="Experience" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="RoleTB">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserTB">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="ActiveCode" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RegesterDate" Type="datetime" Nullable="false" />
+          <Property Name="ImageName" Type="bit" Nullable="false" />
+          <Property Name="PictureName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OnlineProjectUSC.dbo.TheTop5Employee' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TheTop5Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="PhoneNumber" Type="bigint" />
+          <Property Name="Site" Type="varchar" MaxLength="150" />
+          <Property Name="Adress" Type="varchar" MaxLength="150" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OnlineProjectUSC.dbo.TheTotallPriceOfEach' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TheTotallPriceOfEach">
+          <Key>
+            <PropertyRef Name="BoxCategoryID" />
+          </Key>
+          <Property Name="BoxCategoryID" Type="int" Nullable="false" />
+          <Property Name="SUMS" Type="int" />
+        </EntityType>
+        <Association Name="FK_EmployeeTB_UserTB">
+          <End Role="UserTB" Type="Self.UserTB" Multiplicity="1" />
+          <End Role="EmployeeTB" Type="Self.EmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="EmployeeTB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerTB_ResumeTB">
+          <End Role="ResumeTB" Type="Self.ResumeTB" Multiplicity="0..1" />
+          <End Role="EmployerTB" Type="Self.EmployerTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResumeTB">
+              <PropertyRef Name="ResumeID" />
+            </Principal>
+            <Dependent Role="EmployerTB">
+              <PropertyRef Name="ResumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerTB_UserTB">
+          <End Role="UserTB" Type="Self.UserTB" Multiplicity="1" />
+          <End Role="EmployerTB" Type="Self.EmployerTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="EmployerTB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormDetailTB_EmployeeTB">
+          <End Role="EmployeeTB" Type="Self.EmployeeTB" Multiplicity="1" />
+          <End Role="FormDetailTB" Type="Self.FormDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTB">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="FormDetailTB">
+              <PropertyRef Name="EmoloyeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormDetailTB_FormTB">
+          <End Role="FormTB" Type="Self.FormTB" Multiplicity="1" />
+          <End Role="FormDetailTB" Type="Self.FormDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormTB">
+              <PropertyRef Name="FormID" />
+            </Principal>
+            <Dependent Role="FormDetailTB">
+              <PropertyRef Name="FormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormTB_JobCategoryTB">
+          <End Role="JobCategoryTB" Type="Self.JobCategoryTB" Multiplicity="1" />
+          <End Role="FormTB" Type="Self.FormTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategoryTB">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="FormTB">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormTB_OrderDetailTB">
+          <End Role="OrderDetailTB" Type="Self.OrderDetailTB" Multiplicity="0..1" />
+          <End Role="FormTB" Type="Self.FormTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetailTB">
+              <PropertyRef Name="OrderDetailID" />
+            </Principal>
+            <Dependent Role="FormTB">
+              <PropertyRef Name="OrderDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetailTB_BoxCategory">
+          <End Role="BoxCategory" Type="Self.BoxCategory" Multiplicity="1" />
+          <End Role="OrderDetailTB" Type="Self.OrderDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoxCategory">
+              <PropertyRef Name="BoxCategoryID" />
+            </Principal>
+            <Dependent Role="OrderDetailTB">
+              <PropertyRef Name="BoxCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetailTB_EmployeeTB">
+          <End Role="EmployeeTB" Type="Self.EmployeeTB" Multiplicity="1" />
+          <End Role="OrderDetailTB" Type="Self.OrderDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTB">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="OrderDetailTB">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResumeEmployeeTB_FormTB">
+          <End Role="FormTB" Type="Self.FormTB" Multiplicity="1" />
+          <End Role="ResumeEmployeeTB" Type="Self.ResumeEmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormTB">
+              <PropertyRef Name="FormID" />
+            </Principal>
+            <Dependent Role="ResumeEmployeeTB">
+              <PropertyRef Name="FormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResumeEmployeeTB_ResumeTB">
+          <End Role="ResumeTB" Type="Self.ResumeTB" Multiplicity="0..1" />
+          <End Role="ResumeEmployeeTB" Type="Self.ResumeEmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResumeTB">
+              <PropertyRef Name="ResumeID" />
+            </Principal>
+            <Dependent Role="ResumeEmployeeTB">
+              <PropertyRef Name="ResumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTB_RoleTB">
+          <End Role="RoleTB" Type="Self.RoleTB" Multiplicity="1" />
+          <End Role="UserTB" Type="Self.UserTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTB">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserTB">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ResumesHasSentForEachKarFarm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TheAmountOfSaleBaseYear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="years" Type="int" Mode="In" />
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TheFormsOFEachResume" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="resumeid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TheFormsOFEachResumeFinal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="resumeid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TheResumeForEmployees" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TheTotallFormsAfterTheLastOrderForEmployee_finallversion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeid" Type="int" Mode="In" />
+          <Parameter Name="today" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="TheTotallFormsAfterTheLastOrderOfEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeid" Type="int" Mode="In" />
+          <Parameter Name="today" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="TheTotallFormsOfKarfarma" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="employeeid" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="OnlineProjectUSCModelStoreContainer">
+          <EntitySet Name="BoxCategory" EntityType="Self.BoxCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommentTB" EntityType="Self.CommentTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactTB" EntityType="Self.ContactTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeTB" EntityType="Self.EmployeeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployerTB" EntityType="Self.EmployerTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormDetailTB" EntityType="Self.FormDetailTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormTB" EntityType="Self.FormTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategoryTB" EntityType="Self.JobCategoryTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetailTB" EntityType="Self.OrderDetailTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResumeEmployeeTB" EntityType="Self.ResumeEmployeeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResumeTB" EntityType="Self.ResumeTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleTB" EntityType="Self.RoleTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserTB" EntityType="Self.UserTB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TheTop5Employee" EntityType="Self.TheTop5Employee" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TheTop5Employee].[EmployeeID] AS [EmployeeID], 
+    [TheTop5Employee].[UserID] AS [UserID], 
+    [TheTop5Employee].[PhoneNumber] AS [PhoneNumber], 
+    [TheTop5Employee].[Site] AS [Site], 
+    [TheTop5Employee].[Adress] AS [Adress], 
+    [TheTop5Employee].[CompanyName] AS [CompanyName]
+    FROM [dbo].[TheTop5Employee] AS [TheTop5Employee]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TheTotallPriceOfEach" EntityType="Self.TheTotallPriceOfEach" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TheTotallPriceOfEach].[BoxCategoryID] AS [BoxCategoryID], 
+    [TheTotallPriceOfEach].[SUMS] AS [SUMS]
+    FROM [dbo].[TheTotallPriceOfEach] AS [TheTotallPriceOfEach]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_EmployeeTB_UserTB" Association="Self.FK_EmployeeTB_UserTB">
+            <End Role="UserTB" EntitySet="UserTB" />
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerTB_ResumeTB" Association="Self.FK_EmployerTB_ResumeTB">
+            <End Role="ResumeTB" EntitySet="ResumeTB" />
+            <End Role="EmployerTB" EntitySet="EmployerTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerTB_UserTB" Association="Self.FK_EmployerTB_UserTB">
+            <End Role="UserTB" EntitySet="UserTB" />
+            <End Role="EmployerTB" EntitySet="EmployerTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormDetailTB_EmployeeTB" Association="Self.FK_FormDetailTB_EmployeeTB">
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+            <End Role="FormDetailTB" EntitySet="FormDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormDetailTB_FormTB" Association="Self.FK_FormDetailTB_FormTB">
+            <End Role="FormTB" EntitySet="FormTB" />
+            <End Role="FormDetailTB" EntitySet="FormDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormTB_JobCategoryTB" Association="Self.FK_FormTB_JobCategoryTB">
+            <End Role="JobCategoryTB" EntitySet="JobCategoryTB" />
+            <End Role="FormTB" EntitySet="FormTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormTB_OrderDetailTB" Association="Self.FK_FormTB_OrderDetailTB">
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+            <End Role="FormTB" EntitySet="FormTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetailTB_BoxCategory" Association="Self.FK_OrderDetailTB_BoxCategory">
+            <End Role="BoxCategory" EntitySet="BoxCategory" />
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetailTB_EmployeeTB" Association="Self.FK_OrderDetailTB_EmployeeTB">
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResumeEmployeeTB_FormTB" Association="Self.FK_ResumeEmployeeTB_FormTB">
+            <End Role="FormTB" EntitySet="FormTB" />
+            <End Role="ResumeEmployeeTB" EntitySet="ResumeEmployeeTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResumeEmployeeTB_ResumeTB" Association="Self.FK_ResumeEmployeeTB_ResumeTB">
+            <End Role="ResumeTB" EntitySet="ResumeTB" />
+            <End Role="ResumeEmployeeTB" EntitySet="ResumeEmployeeTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTB_RoleTB" Association="Self.FK_UserTB_RoleTB">
+            <End Role="RoleTB" EntitySet="RoleTB" />
+            <End Role="UserTB" EntitySet="UserTB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OnlineProjectUSCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EmployerTB">
+          <Key>
+            <PropertyRef Name="EmployerID" />
+          </Key>
+          <Property Name="EmployerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResumeID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserTB" Relationship="OnlineProjectUSCModel.FK_EmployerTB_UserTB" FromRole="EmployerTB" ToRole="UserTB" />
+          <NavigationProperty Name="ResumeTB" Relationship="OnlineProjectUSCModel.FK_EmployerTB_ResumeTB" FromRole="EmployerTB" ToRole="ResumeTB" />
+        </EntityType>
+        <EntityType Name="JobCategoryTB">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobCategory" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FormTB" Relationship="OnlineProjectUSCModel.FK_FormTB_JobCategoryTB" FromRole="JobCategoryTB" ToRole="FormTB" />
+        </EntityType>
+        <EntityType Name="RoleTB">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserTB" Relationship="OnlineProjectUSCModel.FK_UserTB_RoleTB" FromRole="RoleTB" ToRole="UserTB" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="OnlineProjectUSCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EmployerTB" EntityType="Self.EmployerTB" />
+          <EntitySet Name="JobCategoryTB" EntityType="Self.JobCategoryTB" />
+          <EntitySet Name="RoleTB" EntityType="Self.RoleTB" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ResumeEmployeeTB" EntityType="OnlineProjectUSCModel.ResumeEmployeeTB" />
+          <EntitySet Name="TheTotallPriceOfEach" EntityType="OnlineProjectUSCModel.TheTotallPriceOfEach" />
+          <FunctionImport Name="TheAmountOfSaleBaseYear" ReturnType="Collection(OnlineProjectUSCModel.TheAmountOfSaleBaseYear_Result)">
+            <Parameter Name="years" Mode="In" Type="Int32" />
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TheTotallFormsOfKarfarma" ReturnType="Collection(OnlineProjectUSCModel.TheTotallFormsOfKarfarma_Result)">
+          <Parameter Name="employeeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="BoxCategory" EntityType="OnlineProjectUSCModel.BoxCategory" />
+          <EntitySet Name="EmployeeTB" EntityType="OnlineProjectUSCModel.EmployeeTB" />
+          <FunctionImport Name="TheResumeForEmployees" ReturnType="Collection(OnlineProjectUSCModel.TheResumeForEmployees_Result)">
+          <Parameter Name="employeeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TheFormsOFEachResume" ReturnType="Collection(OnlineProjectUSCModel.TheFormsOFEachResume_Result)">
+          <Parameter Name="resumeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TheFormsOFEachResumeFinal" ReturnType="Collection(OnlineProjectUSCModel.TheFormsOFEachResumeFinal_Result)">
+          <Parameter Name="resumeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="UserTB" EntityType="OnlineProjectUSCModel.UserTB" />
+          <AssociationSet Name="FK_EmployeeTB_UserTB" Association="OnlineProjectUSCModel.FK_EmployeeTB_UserTB">
+            <End Role="UserTB" EntitySet="UserTB" />
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployerTB_UserTB" Association="OnlineProjectUSCModel.FK_EmployerTB_UserTB">
+            <End Role="UserTB" EntitySet="UserTB" />
+            <End Role="EmployerTB" EntitySet="EmployerTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTB_RoleTB" Association="OnlineProjectUSCModel.FK_UserTB_RoleTB">
+            <End Role="RoleTB" EntitySet="RoleTB" />
+            <End Role="UserTB" EntitySet="UserTB" />
+          </AssociationSet>
+          <FunctionImport Name="ResumesHasSentForEachKarFarm" ReturnType="Collection(OnlineProjectUSCModel.ResumesHasSentForEachKarFarm_Result)">
+          <Parameter Name="employeeid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="OrderDetailTB" EntityType="OnlineProjectUSCModel.OrderDetailTB" />
+          <AssociationSet Name="FK_OrderDetailTB_BoxCategory" Association="OnlineProjectUSCModel.FK_OrderDetailTB_BoxCategory">
+            <End Role="BoxCategory" EntitySet="BoxCategory" />
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetailTB_EmployeeTB" Association="OnlineProjectUSCModel.FK_OrderDetailTB_EmployeeTB">
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+          </AssociationSet>
+          <FunctionImport Name="TheTotallFormsAfterTheLastOrderOfEmployee" ReturnType="Collection(OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderOfEmployee_Result)">
+            <Parameter Name="employeeid" Mode="In" Type="Int32" />
+            <Parameter Name="today" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="FormDetailTB" EntityType="OnlineProjectUSCModel.FormDetailTB" />
+          <AssociationSet Name="FK_FormDetailTB_EmployeeTB" Association="OnlineProjectUSCModel.FK_FormDetailTB_EmployeeTB">
+            <End Role="EmployeeTB" EntitySet="EmployeeTB" />
+            <End Role="FormDetailTB" EntitySet="FormDetailTB" />
+          </AssociationSet>
+          <EntitySet Name="ResumeTB" EntityType="OnlineProjectUSCModel.ResumeTB" />
+          <AssociationSet Name="FK_EmployerTB_ResumeTB" Association="OnlineProjectUSCModel.FK_EmployerTB_ResumeTB">
+            <End Role="ResumeTB" EntitySet="ResumeTB" />
+            <End Role="EmployerTB" EntitySet="EmployerTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResumeEmployeeTB_ResumeTB" Association="OnlineProjectUSCModel.FK_ResumeEmployeeTB_ResumeTB">
+            <End Role="ResumeTB" EntitySet="ResumeTB" />
+            <End Role="ResumeEmployeeTB" EntitySet="ResumeEmployeeTB" />
+          </AssociationSet>
+          <EntitySet Name="FormTB" EntityType="OnlineProjectUSCModel.FormTB" />
+          <AssociationSet Name="FK_FormDetailTB_FormTB" Association="OnlineProjectUSCModel.FK_FormDetailTB_FormTB">
+            <End Role="FormTB" EntitySet="FormTB" />
+            <End Role="FormDetailTB" EntitySet="FormDetailTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormTB_JobCategoryTB" Association="OnlineProjectUSCModel.FK_FormTB_JobCategoryTB">
+            <End Role="JobCategoryTB" EntitySet="JobCategoryTB" />
+            <End Role="FormTB" EntitySet="FormTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormTB_OrderDetailTB" Association="OnlineProjectUSCModel.FK_FormTB_OrderDetailTB">
+            <End Role="OrderDetailTB" EntitySet="OrderDetailTB" />
+            <End Role="FormTB" EntitySet="FormTB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResumeEmployeeTB_FormTB" Association="OnlineProjectUSCModel.FK_ResumeEmployeeTB_FormTB">
+            <End Role="FormTB" EntitySet="FormTB" />
+            <End Role="ResumeEmployeeTB" EntitySet="ResumeEmployeeTB" />
+          </AssociationSet>
+          <EntitySet Name="CommentTB" EntityType="OnlineProjectUSCModel.CommentTB" />
+          <EntitySet Name="TheTop5Employee" EntityType="OnlineProjectUSCModel.TheTop5Employee" />
+          <FunctionImport Name="TheTotallFormsAfterTheLastOrderForEmployee_finallversion" ReturnType="Collection(OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderForEmployee_finallversion_Result)">
+            <Parameter Name="employeeid" Mode="In" Type="Int32" />
+            <Parameter Name="today" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="ContactTB" EntityType="OnlineProjectUSCModel.ContactTB" />
+          </EntityContainer>
+        <EntityType Name="ResumeEmployeeTB">
+          <Key>
+            <PropertyRef Name="ResumeEmployeeID" />
+          </Key>
+          <Property Name="ResumeID" Type="Int32" />
+          <Property Name="FormID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ResumeEmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="ResumeTB" Relationship="OnlineProjectUSCModel.FK_ResumeEmployeeTB_ResumeTB" FromRole="ResumeEmployeeTB" ToRole="ResumeTB" />
+          <NavigationProperty Name="FormTB" Relationship="OnlineProjectUSCModel.FK_ResumeEmployeeTB_FormTB" FromRole="ResumeEmployeeTB" ToRole="FormTB" />
+        </EntityType>
+        <EntityType Name="TheTotallPriceOfEach">
+          <Key>
+            <PropertyRef Name="BoxCategoryID" />
+          </Key>
+          <Property Name="BoxCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="SUMS" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="TheAmountOfSaleBaseYear_Result">
+          <Property Type="Int32" Name="BoxCategoryID" Nullable="false" />
+          <Property Type="Int32" Name="Column1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="TheTotallFormsOfKarfarma_Result">
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Benefits" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="WorkingDays" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="RequestDtae" Nullable="false" Precision="23" />
+          <Property Type="String" Name="FormText" Nullable="true" />
+          <Property Type="String" Name="JobDescRiption" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="true" />
+          <Property Type="Int32" Name="BoxCategoryID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+          <Property Type="Int32" Name="UnitPrice" Nullable="false" />
+          <Property Type="DateTime" Name="BuyDate" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="BoxCategory">
+          <Key>
+            <PropertyRef Name="BoxCategoryID" />
+          </Key>
+          <Property Name="BoxCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoxName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BoxDescription" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="DatePermission" Type="Int32" Nullable="false" />
+          <Property Name="CountPermisson" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderDetailTB" Relationship="OnlineProjectUSCModel.FK_OrderDetailTB_BoxCategory" FromRole="BoxCategory" ToRole="OrderDetailTB" />
+        </EntityType>
+        <EntityType Name="EmployeeTB">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNumber" Type="Int64" />
+          <Property Name="Site" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserTB" Relationship="OnlineProjectUSCModel.FK_EmployeeTB_UserTB" FromRole="EmployeeTB" ToRole="UserTB" />
+          <NavigationProperty Name="OrderDetailTB" Relationship="OnlineProjectUSCModel.FK_OrderDetailTB_EmployeeTB" FromRole="EmployeeTB" ToRole="OrderDetailTB" />
+          <NavigationProperty Name="FormDetailTB" Relationship="OnlineProjectUSCModel.FK_FormDetailTB_EmployeeTB" FromRole="EmployeeTB" ToRole="FormDetailTB" />
+        </EntityType>
+        <ComplexType Name="TheResumeForEmployees_Result">
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="LatsName" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="TheFormsOFEachResume_Result">
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Benefits" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="WorkingDays" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDtae" Nullable="false" Precision="23" />
+          <Property Type="String" Name="FormText" Nullable="true" />
+          <Property Type="String" Name="JobDescRiption" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="true" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="TheFormsOFEachResumeFinal_Result">
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Benefits" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="WorkingDays" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDtae" Nullable="false" Precision="23" />
+          <Property Type="String" Name="FormText" Nullable="true" />
+          <Property Type="String" Name="JobDescRiption" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="true" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="DateOfSend" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="UserTB">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="ActiveCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="RegesterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ImageName" Type="Boolean" Nullable="false" />
+          <Property Name="PictureName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EmployeeTB" Relationship="OnlineProjectUSCModel.FK_EmployeeTB_UserTB" FromRole="UserTB" ToRole="EmployeeTB" />
+          <NavigationProperty Name="EmployerTB" Relationship="OnlineProjectUSCModel.FK_EmployerTB_UserTB" FromRole="UserTB" ToRole="EmployerTB" />
+          <NavigationProperty Name="RoleTB" Relationship="OnlineProjectUSCModel.FK_UserTB_RoleTB" FromRole="UserTB" ToRole="RoleTB" />
+        </EntityType>
+        <Association Name="FK_EmployeeTB_UserTB">
+          <End Type="OnlineProjectUSCModel.UserTB" Role="UserTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.EmployeeTB" Role="EmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="EmployeeTB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployerTB_UserTB">
+          <End Type="OnlineProjectUSCModel.UserTB" Role="UserTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.EmployerTB" Role="EmployerTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserTB">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="EmployerTB">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTB_RoleTB">
+          <End Type="OnlineProjectUSCModel.RoleTB" Role="RoleTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.UserTB" Role="UserTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleTB">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="UserTB">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="ResumesHasSentForEachKarFarm_Result">
+          <Property Type="Int32" Name="ResumeID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="LatsName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Age" Nullable="false" />
+          <Property Type="DateTime" Name="RequestDate" Nullable="false" Precision="23" />
+          <Property Type="String" Name="EduDegree" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="AbilityDescription" Nullable="false" MaxLength="150" />
+          <Property Type="Boolean" Name="EnglishAbility" Nullable="false" />
+          <Property Type="String" Name="ExtraAbility" Nullable="false" MaxLength="150" />
+        </ComplexType>
+        <EntityType Name="OrderDetailTB">
+          <Key>
+            <PropertyRef Name="OrderDetailID" />
+          </Key>
+          <Property Name="OrderDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BoxCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Int32" />
+          <Property Name="BuyDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="BoxCategory" Relationship="OnlineProjectUSCModel.FK_OrderDetailTB_BoxCategory" FromRole="OrderDetailTB" ToRole="BoxCategory" />
+          <NavigationProperty Name="EmployeeTB" Relationship="OnlineProjectUSCModel.FK_OrderDetailTB_EmployeeTB" FromRole="OrderDetailTB" ToRole="EmployeeTB" />
+          <NavigationProperty Name="FormTB" Relationship="OnlineProjectUSCModel.FK_FormTB_OrderDetailTB" FromRole="OrderDetailTB" ToRole="FormTB" />
+        </EntityType>
+        <Association Name="FK_OrderDetailTB_BoxCategory">
+          <End Type="OnlineProjectUSCModel.BoxCategory" Role="BoxCategory" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.OrderDetailTB" Role="OrderDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BoxCategory">
+              <PropertyRef Name="BoxCategoryID" />
+            </Principal>
+            <Dependent Role="OrderDetailTB">
+              <PropertyRef Name="BoxCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetailTB_EmployeeTB">
+          <End Type="OnlineProjectUSCModel.EmployeeTB" Role="EmployeeTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.OrderDetailTB" Role="OrderDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTB">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="OrderDetailTB">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="TheTotallFormsAfterTheLastOrderOfEmployee_Result">
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Benefits" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="WorkingDays" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDtae" Nullable="false" Precision="23" />
+          <Property Type="String" Name="FormText" Nullable="true" />
+          <Property Type="String" Name="JobDescRiption" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="true" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <EntityType Name="FormDetailTB">
+          <Key>
+            <PropertyRef Name="FormDetailID" />
+          </Key>
+          <Property Name="FormID" Type="Int32" Nullable="false" />
+          <Property Name="FormDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmoloyeeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EmployeeTB" Relationship="OnlineProjectUSCModel.FK_FormDetailTB_EmployeeTB" FromRole="FormDetailTB" ToRole="EmployeeTB" />
+          <NavigationProperty Name="FormTB" Relationship="OnlineProjectUSCModel.FK_FormDetailTB_FormTB" FromRole="FormDetailTB" ToRole="FormTB" />
+        </EntityType>
+        <Association Name="FK_FormDetailTB_EmployeeTB">
+          <End Type="OnlineProjectUSCModel.EmployeeTB" Role="EmployeeTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.FormDetailTB" Role="FormDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeTB">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="FormDetailTB">
+              <PropertyRef Name="EmoloyeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ResumeTB">
+          <Key>
+            <PropertyRef Name="ResumeID" />
+          </Key>
+          <Property Name="ResumeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LatsName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EduDegree" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityDescription" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EnglishAbility" Type="Boolean" Nullable="false" />
+          <Property Name="ExtraAbility" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="University" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Experience" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmployerTB" Relationship="OnlineProjectUSCModel.FK_EmployerTB_ResumeTB" FromRole="ResumeTB" ToRole="EmployerTB" />
+          <NavigationProperty Name="ResumeEmployeeTB" Relationship="OnlineProjectUSCModel.FK_ResumeEmployeeTB_ResumeTB" FromRole="ResumeTB" ToRole="ResumeEmployeeTB" />
+        </EntityType>
+        <Association Name="FK_EmployerTB_ResumeTB">
+          <End Type="OnlineProjectUSCModel.ResumeTB" Role="ResumeTB" Multiplicity="0..1" />
+          <End Type="OnlineProjectUSCModel.EmployerTB" Role="EmployerTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResumeTB">
+              <PropertyRef Name="ResumeID" />
+            </Principal>
+            <Dependent Role="EmployerTB">
+              <PropertyRef Name="ResumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResumeEmployeeTB_ResumeTB">
+          <End Type="OnlineProjectUSCModel.ResumeTB" Role="ResumeTB" Multiplicity="0..1" />
+          <End Type="OnlineProjectUSCModel.ResumeEmployeeTB" Role="ResumeEmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ResumeTB">
+              <PropertyRef Name="ResumeID" />
+            </Principal>
+            <Dependent Role="ResumeEmployeeTB">
+              <PropertyRef Name="ResumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FormTB">
+          <Key>
+            <PropertyRef Name="FormID" />
+          </Key>
+          <Property Name="FormID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Benefits" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="WorkingDays" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDtae" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FormText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="JobDescRiption" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDetailID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Requirements" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Abilities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="FormDetailTB" Relationship="OnlineProjectUSCModel.FK_FormDetailTB_FormTB" FromRole="FormTB" ToRole="FormDetailTB" />
+          <NavigationProperty Name="JobCategoryTB" Relationship="OnlineProjectUSCModel.FK_FormTB_JobCategoryTB" FromRole="FormTB" ToRole="JobCategoryTB" />
+          <NavigationProperty Name="OrderDetailTB" Relationship="OnlineProjectUSCModel.FK_FormTB_OrderDetailTB" FromRole="FormTB" ToRole="OrderDetailTB" />
+          <NavigationProperty Name="ResumeEmployeeTB" Relationship="OnlineProjectUSCModel.FK_ResumeEmployeeTB_FormTB" FromRole="FormTB" ToRole="ResumeEmployeeTB" />
+        </EntityType>
+        <Association Name="FK_FormDetailTB_FormTB">
+          <End Type="OnlineProjectUSCModel.FormTB" Role="FormTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.FormDetailTB" Role="FormDetailTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormTB">
+              <PropertyRef Name="FormID" />
+            </Principal>
+            <Dependent Role="FormDetailTB">
+              <PropertyRef Name="FormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormTB_JobCategoryTB">
+          <End Type="OnlineProjectUSCModel.JobCategoryTB" Role="JobCategoryTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.FormTB" Role="FormTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobCategoryTB">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="FormTB">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormTB_OrderDetailTB">
+          <End Type="OnlineProjectUSCModel.OrderDetailTB" Role="OrderDetailTB" Multiplicity="0..1" />
+          <End Type="OnlineProjectUSCModel.FormTB" Role="FormTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderDetailTB">
+              <PropertyRef Name="OrderDetailID" />
+            </Principal>
+            <Dependent Role="FormTB">
+              <PropertyRef Name="OrderDetailID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResumeEmployeeTB_FormTB">
+          <End Type="OnlineProjectUSCModel.FormTB" Role="FormTB" Multiplicity="1" />
+          <End Type="OnlineProjectUSCModel.ResumeEmployeeTB" Role="ResumeEmployeeTB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FormTB">
+              <PropertyRef Name="FormID" />
+            </Principal>
+            <Dependent Role="ResumeEmployeeTB">
+              <PropertyRef Name="FormID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CommentTB">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommentUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CommentResponse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CommentResponseDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TheTop5Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNumber" Type="Int64" />
+          <Property Name="Site" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="TheTotallFormsAfterTheLastOrderForEmployee_finallversion_Result">
+          <Property Type="Int32" Name="FormID" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Benefits" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="WorkingDays" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Gender" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="RequestDtae" Nullable="false" Precision="23" />
+          <Property Type="String" Name="FormText" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="JobDescRiption" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="OrderDetailID" Nullable="true" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Requirements" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="Abilities" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="ContactTB">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="Int64" Nullable="false" />
+          <Property Name="ContactSubject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactText" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ContactDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OnlineProjectUSCModelStoreContainer" CdmEntityContainer="OnlineProjectUSCEntities">
+          <EntitySetMapping Name="EmployerTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.EmployerTB">
+              <MappingFragment StoreEntitySet="EmployerTB">
+                <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+                <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategoryTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.JobCategoryTB">
+              <MappingFragment StoreEntitySet="JobCategoryTB">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.RoleTB">
+              <MappingFragment StoreEntitySet="RoleTB">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResumeEmployeeTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.ResumeEmployeeTB">
+              <MappingFragment StoreEntitySet="ResumeEmployeeTB">
+                <ScalarProperty Name="ResumeEmployeeID" ColumnName="ResumeEmployeeID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheTotallPriceOfEach">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.TheTotallPriceOfEach">
+              <MappingFragment StoreEntitySet="TheTotallPriceOfEach">
+                <ScalarProperty Name="SUMS" ColumnName="SUMS" />
+                <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TheAmountOfSaleBaseYear" FunctionName="OnlineProjectUSCModel.Store.TheAmountOfSaleBaseYear">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheAmountOfSaleBaseYear_Result">
+                <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TheTotallFormsOfKarfarma" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsOfKarfarma">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsOfKarfarma_Result">
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="BoxCategory">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.BoxCategory">
+              <MappingFragment StoreEntitySet="BoxCategory">
+                <ScalarProperty Name="CountPermisson" ColumnName="CountPermisson" />
+                <ScalarProperty Name="DatePermission" ColumnName="DatePermission" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="BoxDescription" ColumnName="BoxDescription" />
+                <ScalarProperty Name="BoxName" ColumnName="BoxName" />
+                <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.EmployeeTB">
+              <MappingFragment StoreEntitySet="EmployeeTB">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TheResumeForEmployees" FunctionName="OnlineProjectUSCModel.Store.TheResumeForEmployees">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheResumeForEmployees_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TheFormsOFEachResume" FunctionName="OnlineProjectUSCModel.Store.TheFormsOFEachResume">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheFormsOFEachResume_Result">
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TheFormsOFEachResumeFinal" FunctionName="OnlineProjectUSCModel.Store.TheFormsOFEachResumeFinal">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheFormsOFEachResumeFinal_Result">
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="DateOfSend" ColumnName="DateOfSend" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="UserTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.UserTB">
+              <MappingFragment StoreEntitySet="UserTB">
+                <ScalarProperty Name="PictureName" ColumnName="PictureName" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="RegesterDate" ColumnName="RegesterDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ResumesHasSentForEachKarFarm" FunctionName="OnlineProjectUSCModel.Store.ResumesHasSentForEachKarFarm">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.ResumesHasSentForEachKarFarm_Result">
+                <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="EduDegree" ColumnName="EduDegree" />
+                <ScalarProperty Name="AbilityDescription" ColumnName="AbilityDescription" />
+                <ScalarProperty Name="EnglishAbility" ColumnName="EnglishAbility" />
+                <ScalarProperty Name="ExtraAbility" ColumnName="ExtraAbility" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="OrderDetailTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.OrderDetailTB">
+              <MappingFragment StoreEntitySet="OrderDetailTB">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TheTotallFormsAfterTheLastOrderOfEmployee" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsAfterTheLastOrderOfEmployee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderOfEmployee_Result">
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="FormDetailTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.FormDetailTB">
+              <MappingFragment StoreEntitySet="FormDetailTB">
+                <ScalarProperty Name="EmoloyeeID" ColumnName="EmoloyeeID" />
+                <ScalarProperty Name="FormDetailID" ColumnName="FormDetailID" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResumeTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.ResumeTB">
+              <MappingFragment StoreEntitySet="ResumeTB">
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="ExtraAbility" ColumnName="ExtraAbility" />
+                <ScalarProperty Name="EnglishAbility" ColumnName="EnglishAbility" />
+                <ScalarProperty Name="AbilityDescription" ColumnName="AbilityDescription" />
+                <ScalarProperty Name="EduDegree" ColumnName="EduDegree" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.FormTB">
+              <MappingFragment StoreEntitySet="FormTB">
+                <ScalarProperty Name="Abilities" ColumnName="Abilities" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.CommentTB">
+              <MappingFragment StoreEntitySet="CommentTB">
+                <ScalarProperty Name="CommentResponseDate" ColumnName="CommentResponseDate" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="CommentResponse" ColumnName="CommentResponse" />
+                <ScalarProperty Name="CommentUserName" ColumnName="CommentUserName" />
+                <ScalarProperty Name="CommentEmail" ColumnName="CommentEmail" />
+                <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheTop5Employee">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.TheTop5Employee">
+              <MappingFragment StoreEntitySet="TheTop5Employee">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TheTotallFormsAfterTheLastOrderForEmployee_finallversion" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsAfterTheLastOrderForEmployee_finallversion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderForEmployee_finallversion_Result">
+                <ScalarProperty Name="FormID" ColumnName="FormID" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+                <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+                <ScalarProperty Name="FormText" ColumnName="FormText" />
+                <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="Abilities" ColumnName="Abilities" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="ContactTB">
+            <EntityTypeMapping TypeName="OnlineProjectUSCModel.ContactTB">
+              <MappingFragment StoreEntitySet="ContactTB">
+                <ScalarProperty Name="ContactDate" ColumnName="ContactDate" />
+                <ScalarProperty Name="ContactText" ColumnName="ContactText" />
+                <ScalarProperty Name="ContactSubject" ColumnName="ContactSubject" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactUserName" ColumnName="ContactUserName" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

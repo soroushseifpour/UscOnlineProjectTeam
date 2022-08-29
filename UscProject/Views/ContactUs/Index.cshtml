@@ -1,0 +1,175 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page-title title-bg23">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>تماس با ما</h2>
+            <ul>
+                <li>
+                    <a href="index.html">صفحه اصلی</a>
+                </li>
+                <li>تماس با ما</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Contact Section Start -->
+<div class="contact-card-section ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="contact-card">
+                            <i class='bx bx-phone-call'></i>
+                            <ul>
+                                <li>
+                                    <a href="tel:+145664474574">
+                                        14566447457
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:17459674567">
+                                        17459674567
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="contact-card">
+                            <i class='bx bx-mail-send'></i>
+                            <ul>
+                                <li>
+                                    <a href="mailto:info@jovie.com">
+                                        info@jovie.com
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:hello@jovie.com">
+                                        hello@jovie.com
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 offset-sm-3 offset-md-0">
+                        <div class="contact-card">
+                            <i class='bx bx-location-plus'></i>
+                            <ul>
+                                <li>
+                                    ایران ، تهران ، میدان آزادی
+                                </li>
+                                <li>
+                                    ایران ، تهران ، میدان آزادی
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Section End -->
+<!-- Contact Form Start --><section class="contact-form-section pb-100">
+    <div class="container">
+        <div class="contact-area">
+            <h3>با ما تماس بگیرید</h3>
+            <form id="contactForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text"  id="ContactUserName" class="form-control" required data-error="لطفا نام خود را وارد کنید" placeholder="نام شما">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="email" id="ContactEmail" class="form-control" required data-error="ایمیل خود را وارد کنید" placeholder="ایمیل شما">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="ContactPhone" class="form-control" required data-error="تلفن خود را وارد کنید" placeholder="تلفن شما">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" id="ContactSubject" class="form-control" required data-error="موضوع خود را وارد کنید" placeholder="موضوع شما">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <textarea  class="form-control message-field" id="ContactText" cols="30" rows="7" required data-error="پیام خود را بنویسید" placeholder="پیام شما"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 text-center">
+                        <button class="default-btn contact-btn" id="contact-btn">
+                            ارسال پیام
+                        </button>
+                        <div id="msgSubmit" class="h3 alert-text text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+@section Scripts
+{
+    <script>
+        $(function () {
+            $(document).ready(function () {
+                $(document).on("click", "#contact-btn", function (e) {
+                  
+                    $.ajax({
+                        type: "POST",
+                        url: "/ContactUs/SendComment",
+                        data: JSON.stringify({
+                            ContactUserName: $("#ContactUserName").val(),
+                            ContactEmail: $("#ContactEmail").val(),
+                            ContactPhone: $("#ContactPhone").val(),
+                            ContactSubject: $("#ContactSubject").val(),
+                            ContactText: $("#ContactText").val(),
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (e) {
+                            if (e.Status) {
+                                alert('تغییرات ذخیره شد');
+                            }
+                            else {
+
+                                alert('مجددا سعی کنید');
+                            }
+                        },
+                        error: function () {
+                            alert('خطا در ارتباط با سرور');
+                        }
+                    });
+                });
+
+            });
+        });
+    </script>
+}

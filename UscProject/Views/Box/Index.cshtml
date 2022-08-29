@@ -1,0 +1,65 @@
+﻿@model IEnumerable<UscProject.Models.BoxCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="pricing-section pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>برنامه ها و بسته های ما را بخرید</h2>
+            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="price-card">
+                        <div class="price-top">
+                            <h3>@item.BoxName</h3>
+                            <i class="bx bx-user"></i>
+                            <h2>@item.Price <sub>تومان / @item.DatePermission روزه</sub></h2>
+                            <h5>@item.CountPermisson  اگهی ها در این مدت</h5>
+                        </div>
+
+                        <div class="price-feature">
+                            <ul>
+                                @{
+
+                                    char[] delimiterCharsEXP = { ',', '،' };
+                                    string[] wordsEXP = item.BoxDescription.Split(delimiterCharsEXP);
+                                    foreach (var items in wordsEXP)
+                                    {
+                                        <li>
+                                            <i class="bx bx-check"></i>
+                                            @items
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="price-btn">
+                            <a class="btn" >@ViewBag.message</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+</section>
+<!-- Pricing Section End -->
+<!-- Subscribe Section Start -->
+@section Scripts
+{
+
+    <script src="~/Areas/Admin/Content/assets/js/plugins/toastr/toastr.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/plugins/toastr/toastr.active.js"></script>
+    <script>
+
+    </script>
+
+}

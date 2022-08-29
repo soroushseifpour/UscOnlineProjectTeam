@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OnlineProjectUSCModelStoreContainer" CdmEntityContainer="OnlineProjectUSCEntities">
+    <EntitySetMapping Name="EmployerTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.EmployerTB">
+        <MappingFragment StoreEntitySet="EmployerTB">
+          <ScalarProperty Name="EmployerID" ColumnName="EmployerID" />
+          <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategoryTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.JobCategoryTB">
+        <MappingFragment StoreEntitySet="JobCategoryTB">
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.RoleTB">
+        <MappingFragment StoreEntitySet="RoleTB">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResumeEmployeeTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.ResumeEmployeeTB">
+        <MappingFragment StoreEntitySet="ResumeEmployeeTB">
+          <ScalarProperty Name="ResumeEmployeeID" ColumnName="ResumeEmployeeID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheTotallPriceOfEach">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.TheTotallPriceOfEach">
+        <MappingFragment StoreEntitySet="TheTotallPriceOfEach">
+          <ScalarProperty Name="SUMS" ColumnName="SUMS" />
+          <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TheAmountOfSaleBaseYear" FunctionName="OnlineProjectUSCModel.Store.TheAmountOfSaleBaseYear">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheAmountOfSaleBaseYear_Result">
+          <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+          <ScalarProperty Name="Column1" ColumnName="Column1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TheTotallFormsOfKarfarma" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsOfKarfarma">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsOfKarfarma_Result">
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="BoxCategory">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.BoxCategory">
+        <MappingFragment StoreEntitySet="BoxCategory">
+          <ScalarProperty Name="CountPermisson" ColumnName="CountPermisson" />
+          <ScalarProperty Name="DatePermission" ColumnName="DatePermission" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BoxDescription" ColumnName="BoxDescription" />
+          <ScalarProperty Name="BoxName" ColumnName="BoxName" />
+          <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.EmployeeTB">
+        <MappingFragment StoreEntitySet="EmployeeTB">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TheResumeForEmployees" FunctionName="OnlineProjectUSCModel.Store.TheResumeForEmployees">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheResumeForEmployees_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TheFormsOFEachResume" FunctionName="OnlineProjectUSCModel.Store.TheFormsOFEachResume">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheFormsOFEachResume_Result">
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TheFormsOFEachResumeFinal" FunctionName="OnlineProjectUSCModel.Store.TheFormsOFEachResumeFinal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheFormsOFEachResumeFinal_Result">
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="DateOfSend" ColumnName="DateOfSend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="UserTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.UserTB">
+        <MappingFragment StoreEntitySet="UserTB">
+          <ScalarProperty Name="PictureName" ColumnName="PictureName" />
+          <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+          <ScalarProperty Name="RegesterDate" ColumnName="RegesterDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ResumesHasSentForEachKarFarm" FunctionName="OnlineProjectUSCModel.Store.ResumesHasSentForEachKarFarm">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.ResumesHasSentForEachKarFarm_Result">
+          <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="EduDegree" ColumnName="EduDegree" />
+          <ScalarProperty Name="AbilityDescription" ColumnName="AbilityDescription" />
+          <ScalarProperty Name="EnglishAbility" ColumnName="EnglishAbility" />
+          <ScalarProperty Name="ExtraAbility" ColumnName="ExtraAbility" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="OrderDetailTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.OrderDetailTB">
+        <MappingFragment StoreEntitySet="OrderDetailTB">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="BoxCategoryID" ColumnName="BoxCategoryID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TheTotallFormsAfterTheLastOrderOfEmployee" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsAfterTheLastOrderOfEmployee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderOfEmployee_Result">
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="FormDetailTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.FormDetailTB">
+        <MappingFragment StoreEntitySet="FormDetailTB">
+          <ScalarProperty Name="EmoloyeeID" ColumnName="EmoloyeeID" />
+          <ScalarProperty Name="FormDetailID" ColumnName="FormDetailID" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ResumeTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.ResumeTB">
+        <MappingFragment StoreEntitySet="ResumeTB">
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="ExtraAbility" ColumnName="ExtraAbility" />
+          <ScalarProperty Name="EnglishAbility" ColumnName="EnglishAbility" />
+          <ScalarProperty Name="AbilityDescription" ColumnName="AbilityDescription" />
+          <ScalarProperty Name="EduDegree" ColumnName="EduDegree" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="LatsName" ColumnName="LatsName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ResumeID" ColumnName="ResumeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.FormTB">
+        <MappingFragment StoreEntitySet="FormTB">
+          <ScalarProperty Name="Abilities" ColumnName="Abilities" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommentTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.CommentTB">
+        <MappingFragment StoreEntitySet="CommentTB">
+          <ScalarProperty Name="CommentResponseDate" ColumnName="CommentResponseDate" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="CommentResponse" ColumnName="CommentResponse" />
+          <ScalarProperty Name="CommentUserName" ColumnName="CommentUserName" />
+          <ScalarProperty Name="CommentEmail" ColumnName="CommentEmail" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheTop5Employee">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.TheTop5Employee">
+        <MappingFragment StoreEntitySet="TheTop5Employee">
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TheTotallFormsAfterTheLastOrderForEmployee_finallversion" FunctionName="OnlineProjectUSCModel.Store.TheTotallFormsAfterTheLastOrderForEmployee_finallversion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OnlineProjectUSCModel.TheTotallFormsAfterTheLastOrderForEmployee_finallversion_Result">
+          <ScalarProperty Name="FormID" ColumnName="FormID" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="WorkingDays" ColumnName="WorkingDays" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="RequestDtae" ColumnName="RequestDtae" />
+          <ScalarProperty Name="FormText" ColumnName="FormText" />
+          <ScalarProperty Name="JobDescRiption" ColumnName="JobDescRiption" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Abilities" ColumnName="Abilities" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ContactTB">
+      <EntityTypeMapping TypeName="OnlineProjectUSCModel.ContactTB">
+        <MappingFragment StoreEntitySet="ContactTB">
+          <ScalarProperty Name="ContactDate" ColumnName="ContactDate" />
+          <ScalarProperty Name="ContactText" ColumnName="ContactText" />
+          <ScalarProperty Name="ContactSubject" ColumnName="ContactSubject" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactUserName" ColumnName="ContactUserName" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

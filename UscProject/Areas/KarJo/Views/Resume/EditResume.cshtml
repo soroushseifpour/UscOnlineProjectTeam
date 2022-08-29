@@ -1,0 +1,160 @@
+﻿@model UscProject.Models.ResumeTB
+@{
+    ViewBag.Title = "EditResume";
+    Layout = "~/Areas/KarJo/Views/Shared/_KarJoLayout.cshtml";
+}
+<div class="col-lg-12 col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h4 class="title">فرم با عناصر فرم پیشرفته</h4>
+        </div>
+        <div class="box-body">
+
+            <div class="row mbn-20">
+                <div class="avatar avatar-xxl mr-10 mb-10">
+                    <img src="@ViewBag.path" alt="">
+                    <span class="status"></span>
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutUsername4"> نام</label>
+                    <input type="text" id="FirstName" class="form-control" value="@Model.FirstName">
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutEmail4">نام خانوادگی</label>
+                    <input type="email" id="LatsName" class="form-control" value="@Model.LatsName">
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutEmail4">دانشگاه</label>
+                    <input type="email" id="University" class="form-control" value="@Model.University">
+                </div>
+                <div class="col-12 mb-20">
+                    <div class="row mbn-20">
+                        <div class="col-lg-4 mb-20">
+                            <label for="formLayoutCity2">سن</label>
+                            <input type="text" id="Age" class="form-control" value="@Model.Age">
+                        </div>
+                        <div class="col-lg-4 mb-20">
+                            <label for="formLayoutState2">مدرک تحصیلی</label>
+                            <select id="EduDegree" class="form-control select2">
+                                @if (Model.EduDegree.ToString() == "diploma")
+                                {
+                                    <option selected>دیپلم</option>
+                                    <option>کارشناسی</option>
+                                    <option>کارشناسی ارشد</option>
+                                }
+                                else
+                                {
+                                    if (Model.EduDegree.ToString() == "bachlor")
+                                    {
+                                        <option>دیپلم</option>
+                                        <option selected>کارشناسی</option>
+                                        <option>کارشناسی ارشد</option>
+                                    }
+                                    else
+                                    {
+                                        <option>دیپلم</option>
+                                        <option>کارشناسی</option>
+                                        <option selected>کارشناسی ارشد</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutMessage2">مهارت اصلی</label>
+                    <input type="text" id="AbilityDescription" class="form-control" value="@Model.AbilityDescription">
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutMessage2">تجربه</label>
+                    <textarea id="Experience" class="form-control">@Model.Experience</textarea>
+                </div>
+                <div class="col-sm-6 col-12 mb-20">
+                    <h6 class="mb-15">مسلط به زبان انگلیسی</h6>
+                    <div class="adomx-checkbox-radio-group">
+                        @if (Model.EnglishAbility == true)
+                        {
+                            <label class="adomx-radio"><input type="radio" value="true" name="EnglishAbility" checked><i class="icon"></i>بله</label>
+                            <label class="adomx-radio"><input type="radio" value="false" name="EnglishAbility"><i class="icon"></i>خیر</label>
+                        }
+                        else
+                        {
+                            <label class="adomx-radio"><input type="radio" value="true" name="EnglishAbility"><i class="icon"></i>بله</label>
+                            <label class="adomx-radio"><input type="radio" value="false" name="EnglishAbility" checked><i class="icon"></i>خیر</label>
+                        }
+
+                    </div>
+                </div>
+                <div class="col-12 mb-20">
+                    <label for="formLayoutMessage2">توانایی های اضافی</label>
+                    <textarea id="ExtraAbility" class="form-control">@Model.ExtraAbility</textarea>
+                </div>
+                <div class="col-12 mb-20">
+                    <input type="submit" value="تغییرات ذخیره شود" class="button button-primary btn-edit">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@section PageScript
+{
+
+    <script>
+
+        $(function () {
+            $(document).ready(function () {
+                $(document).on("click", ".btn-edit", function (e) {
+
+                    var e = document.getElementById("EduDegree");
+                    var EduDegree = e.options[e.selectedIndex].value;
+
+                    var s = $("input[name='EnglishAbility']:checked").val();
+               
+                    var c;
+
+                    if (s==true) {
+                        c = true;
+                    }
+                    else { c = false; }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/KarJo/Resume/EditResume",
+                        data: JSON.stringify({
+                            ResumeID:@Model.ResumeID,
+                            FirstName: $("#FirstName").val(),
+                            LatsName: $("#LatsName").val(),
+                            Age: $("#Age").val(),
+                            RequestDate: "@Model.RequestDate",
+                            EduDegree: EduDegree,
+                            AbilityDescription: $("#AbilityDescription").val(),
+                            EnglishAbility:c,
+                            ExtraAbility: $("#ExtraAbility").val(),
+                            University: $("#University").val(),
+                            Experience: $("#Experience").val()
+                        }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (e) {
+                            if (e.Status) {
+                                alert('تغییرات ذخیره شد');
+                            }
+                            else {
+                                alert('تغییرات اعمال نشد');
+
+                            }
+                        },
+                        error: function () {
+                            alert('خطا در ارتباط با سرور');
+                        }
+                    });
+                });
+
+            });
+        });
+
+    </script>
+}

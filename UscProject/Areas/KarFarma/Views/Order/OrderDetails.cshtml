@@ -1,0 +1,113 @@
+﻿@model UscProject.Areas.KarFarma.ViewModel.OrderDetails
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Areas/KarFarma/Views/Shared/_KarFarmaLayout.cshtml";
+}
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3>جزییات سفارش</h3>
+        </div>
+    </div><!-- Page Heading End -->
+
+</div><!-- Page Headings End -->
+
+<div class="row mbn-30">
+
+    <!--Order Details Head Start-->
+    <div class="col-12 mb-30">
+        <div class="row mbn-15">
+            <div class="col-12 col-md-4 mb-15">
+                <h4 class="text-primary fw-600 m-0">سفارش @Model.OrderID</h4>
+            </div>
+            @if (Model.status)
+            {
+                <div class="text-left text-md-center col-12 col-md-4 mb-15"><span>وضعیت: <span class="badge badge-round badge-success">پرداخت شده</span></span></div>
+            }
+            else
+            {
+                <div class="text-left text-md-center col-12 col-md-4 mb-15"><span>وضعیت: <span class="badge badge-round badge-warning">پرداخت نشده</span></span></div>
+            }
+            <div class="text-left text-md-right col-12 col-md-4 mb-15">
+                <p>@Model.datebuy</p>
+            </div>
+        </div>
+    </div>
+    <!--Order Details Head End-->
+    <!--Order Details Customer Information Start-->
+    <div class="col-12 mb-30">
+        <div class="order-details-customer-info row mbn-20">
+
+            <!--Billing Info Start-->
+            <div class="col-lg-4 col-md-6 col-12 mb-20">
+                <h4 class="mb-25">اطلاعات صورتحساب</h4>
+                <ul>
+                    <li> <span>نام</span> <span>@Model.UserName</span> </li>
+                    <li> <span>آدرس</span> <span>خیابان @Model.address <br>شرکت @Model.ComapnyName.</span> </li>
+                    <li> <span>ایمیل</span> <span>@Model.Email</span> </li>
+                    <li> <span>تلفن</span> <span>@Model.PhoneNumber</span> </li>
+                </ul>
+            </div>
+            <!--Billing Info End-->
+            <!--Shipping Info Start-->
+            <div class="col-lg-4 col-md-6 col-12 mb-20">
+                <h4 class="mb-25">اطلاعات فروشنده</h4>
+                <ul>
+                    <li> <span>نام</span> <span>@ViewBag.AdminName</span> </li>
+                    <li> <span>تلفن</span> <span>@ViewBag.AdminPhoneNumber</span> </li>
+                </ul>
+            </div>
+            <!--Shipping Info End-->
+            <!--Purchase Info Start-->
+            <div class="col-lg-4 col-md-6 col-12 mb-20">
+                <h4 class="mb-25">اطلاعات خرید</h4>
+                <ul>
+                    <li> <span>آیتم ها</span> <span>@Model.boxname</span> </li>
+                    <li> <span>قیمت</span> <span>@Model.Price تومان</span> </li>
+                    <li> <span>تخفیف</span> <span>0تومان</span> </li>
+                    <li> <span>مجموع</span> <span>@Model.UnitPrice تومان</span> </li>
+                    @if (Model.status)
+                    {
+                        <li> <span class="h5 fw-600">وضعیت</span> <span class="h5 fw-600 text-success">پرداخت شده</span> </li>
+                    }
+                    else 
+                    {
+                        <li> <span class="h5 fw-600">وضعیت</span> <span class="h5 fw-600 text-warning">پرداخت نشده</span> </li>  
+                    }
+                </ul>
+            </div>
+            <!--Purchase Info End-->
+
+        </div>
+    </div>
+    <!--Order Details Customer Information Start-->
+    <!--Order Details List Start-->
+    <div class="col-12 mb-30">
+        <div class="table-responsive">
+            <table class="table table-bordered table-vertical-middle">
+                <thead>
+                    <tr>
+                        <th>شناسه سفارش</th>
+                        <th>نام محصول</th>
+                        <th>مبلغ پرداخت شده</th>
+                        <th>تعداد</th>
+                        <th>تاریخ سفارش</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.OrderID</td>
+                        <td>@Model.boxname</td>
+                        <td>@Model.UnitPrice</td>
+                        <td>1</td>
+                        <td>@Model.datebuy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Order Details List End-->
+
+</div>

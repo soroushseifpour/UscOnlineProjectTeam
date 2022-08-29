@@ -1,0 +1,116 @@
+﻿@model UscProject.Areas.Admin.ViewModels.ShowKarjoInformation
+@{
+    ViewBag.Title = "ShowKarjoInformation";
+    ViewBag.UserProfile = "active";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+
+    string path = Url.Content("~/Files/UserPictures/Default/DefaultPic.png");
+    if (Model.PicStatus)
+    {
+        path = Url.Content("~/Files/UserPictures/Custom/KarJo/" +Model.ImageName);
+
+    }
+    else
+    {
+        path = Url.Content("~/Files/UserPictures/Default/UserProfile.jpg");
+    }
+}
+
+
+
+<h3 class=" mb-35">کارجو</h3>
+<div class="row  mb-50">
+
+    <div class="pricing-two col-lg-4 col-12 mb-30">
+        <div class="inner">
+
+            <div class="body">
+                <img src="@path" class="rounded mx-auto d-block" alt="...">
+                <br />
+                    <h5 class="title">@Model.UserName</h5>
+                <ul>
+
+                    <li>@Model.Email</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8 col-12 mb-30">
+        <div class="box">
+        </div>
+    </div>
+
+</div>
+<div class="col-12 mb-30">
+    <div class="box">
+        <div class="box-head">
+            <h3 class="title">جدول فرم ها</h3>
+        </div>
+        <div class="box-body">
+
+            <table class="table table-bordered data-table data-table-export">
+                <thead>
+                    <tr>
+                        <th>شرکت</th>
+                        <th>منطقه</th>
+                        <th>شهر</th>
+                        <th>تاریخ ارسال</th>
+                        <th>وضعیت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var g in Model.theForms)
+                    {
+                    <tr>
+                        <td>@g.CompanyName</td>
+                        <td>@g.Region</td>
+                        <td>@g.City</td>
+                        <td>@g.DateOfSend</td>
+                        <td class="col-lg-3 col-md-4 col-sm-6 col-12">
+                            <a onclick="view(@g.FormID)" data-clipboard-text="fa fa-user-circle-o"><i class="fa fa-user-circle-o" aria-hidden="true"></i> </a>
+                        </td>
+                    </tr>
+                    }
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>منطقه</th>
+                        <th>شهر</th>
+                        <th>تاریخ فرم</th>
+                        <th>جعبه</th>
+                        <th>وضعیت</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="MyModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Pricing Four Start -->
+@section PageScript
+{
+
+    <script src="~/Areas/Admin/Content/assets/js/plugins/datatables/datatables.min.js"></script>
+    <script src="~/Areas/Admin/Content/assets/js/plugins/datatables/datatables.active.js"></script>
+    <script>
+        function view(id) {
+            $.get("/Admin/KarJo/ShowFormsDetails/" + id, function (res) {
+
+                $("#MyModal").modal();
+                $("#myModalBody").html(res);
+
+            });
+        }
+    </script>
+}

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<UscProject.Models.BoxCategory>
+@{
+    ViewBag.Title = "AddBox";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<h3 class="text-center mb-75 mb-xs-35">بسته ها</h3>
+<div class="row no-gutters  mb-50">
+    @foreach (var item in Model)
+    {
+
+        <div class="pricing-one col-lg-4 col-12 mb-30">
+            <div class="inner">
+
+                <div class="head">
+                    <div class="icon"><img src="~/Areas/Admin/Content/assets/images/icons/pricing-one-1.png" alt=""></div>
+                    <div class="info">
+                        <h5 class="title">بسته @item.BoxName</h5>
+                        <h1 class="price">@item.Price تومان</h1>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <ul>
+                        <li>@item.DatePermission مهلت استفاده</li>
+                        <li>@item.CountPermisson تعداد اگهی ها</li>
+                        @{
+
+                            char[] delimiterChars = { ',', '،' };
+                            string[] words = item.BoxDescription.Split(delimiterChars);
+
+                            foreach (var w in words)
+                            {
+                                <li>@w</li>
+                            }
+                        }
+                    </ul>
+                </div>
+
+                <div class="foot">
+                    <a href="@Url.Action("EditBox","Box", new { id = item.BoxCategoryID})" class="button button-danger">ویرایش کنید</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+    <div class="pricing-one col-lg-4 col-12 mb-30">
+        <div class="inner">
+
+            <div class="head">
+                <div class="icon"><img src="~/Areas/Admin/Content/assets/images/icons/pricing-one-1.png" alt=""></div>
+                <div class="info">
+                    <h5 class="title">بسته جدید</h5>
+                    <h1 class="price">قیمت</h1>
+                </div>
+            </div>
+
+            <div class="body">
+                <ul>
+                    <li>ویژگی های بسته خود را اضافی کنید </li>
+                </ul>
+            </div>
+
+            <div class="foot">
+               <a class="button button-success" href="@Url.Action("AddNewBox","Box")">اضافه کنید</a>
+            </div>
+
+        </div>
+    </div>
+
+
+</div><!-- Pricing One End -->

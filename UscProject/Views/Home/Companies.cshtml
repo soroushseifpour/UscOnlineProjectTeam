@@ -1,0 +1,66 @@
+﻿@model PagedList.PagedList<UscProject.ViewModel.Companiesvm>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="page-title title-bg9">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>شرکت</h2>
+            <ul>
+                <li>
+                    <a href="index.html">صفحه اصلی</a>
+                </li>
+                <li>شرکت</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+<section class="company-section company-style-two pt-100 pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>شرکت های برتر</h2>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <div class="company-card" style="height:90%">
+                        <div class="company-logo">
+                            <a href="job-list.html">
+                                <img src="@item.img" style="width:100.41px;height:50.67px" alt="company logo">
+                            </a>
+                        </div>
+                        <div class="company-text">
+                            <h6 style="font-size:22px">@item.name</h6>
+                            <p>
+                                <i class="bx bx-location-plus"></i>
+                                @item.address
+                            </p>
+                            <a href="@Url.Action("JobLists","Job",new { id= item.id })" class="company-btn">
+                                @item.FormsCount موقعیت باز
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                @Html.PagedListPager(Model, page => Url.Action("Companies", new { page }))
+            </ul>
+        </nav>
+    </div>
+</section>
+
+
+
+<!-- Companies Section End -->

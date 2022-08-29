@@ -1,0 +1,11 @@
+﻿@model UscProject.Models.JobCategoryTB
+    <form action="/Admin/Jobs/EditJob" method="post">
+        <input type="hidden" name="JobID" value="@Model.JobID"/>
+        <input class="form-control" name="JobCategory" id="BoxName" value="@Model.JobCategory" />
+        <br />
+        <button class="button button-danger" data-dismiss="modal">بستن</button>
+        <button id="submit-form" onclick="pass()" class="button button-primary">ذخیره تغییرات</button>
+    </form>
+
+
+

@@ -1,0 +1,235 @@
+﻿@model IEnumerable<UscProject.Models.BoxCategory>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<!-- Page Headings Start -->
+<div class="row justify-content-between align-items-center mb-10">
+
+    <!-- Page Heading Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-heading">
+            <h3>داشبورد <span>/ تجارت الکترونیکی</span></h3>
+        </div>
+    </div><!-- Page Heading End -->
+    <!-- Page Button Group Start -->
+    <div class="col-12 col-lg-auto mb-20">
+        <div class="page-date-range">
+            <input type="text" class="form-control input-date-predefined">
+        </div>
+    </div><!-- Page Button Group End -->
+
+</div><!-- Page Headings End -->
+<!-- Top Report Wrap Start -->
+<div class="row">
+    <!-- Top Report Start -->
+    <div class="col-xlg-3 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>مجموع رزومه های </h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.resume</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: @ViewBag.resume;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <!-- Top Report Start -->
+    <div class="col-xlg-3 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>تعداد کل فرم های ارسالی</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.forms</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: @ViewBag.forms;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <div class="col-xlg-3 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>تعداد کل کارجو</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.karjo</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: @ViewBag.karjo;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+    <div class="col-xlg-3 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>تعداد کل کارفرما</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>@ViewBag.karfarma</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: @ViewBag.karfarma;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- Top Report End -->
+</div><!-- Top Report Wrap End -->
+
+<div class="row mbn-30">
+
+    <!-- Revenue Statistics Chart Start -->
+    <div class="col-md-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">آمار درآمد</h4>
+            </div>
+            <div class="box-body">
+                <div class="chartjs-revenue-statistics-chart" id="chartContainer" style="height: 370px; width: 100%;"></div>
+            </div>
+        </div>
+    </div><!-- Revenue Statistics Chart End -->
+
+    <div class="col-12 mb-30">
+        <div class="box">
+            <div class="box-head">
+                <h4 class="title">بسته ها</h4>
+            </div>
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table table-vertical-middle table-selectable">
+
+                        <!-- Table Head Start -->
+                        <thead>
+                            <tr>
+
+                                <!--<th class="selector h5"><button class="button-check"></button></th>-->
+                                <th><span>نام محصول</span></th>
+                                <th><span>قیمت</span></th>
+                                <th><span>وضعبت</span></th>
+
+                            </tr>
+                        </thead><!-- Table Head End -->
+                        <!-- Table Body Start -->
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td><a href="#">@item.BoxName</a></td>
+                                    <td>@item.Price</td>
+                                    <td><span class="badge badge-success"><a onclick="view(@item.BoxCategoryID)">مشاهده جزِئیات </a></span></td>
+                                    <td><a class="h3" href="@Url.Action("EditBox","Box", new { id = item.BoxCategoryID })"><i class="zmdi zmdi-more"></i></a></td>
+                                </tr>
+                            }
+                        </tbody><!-- Table Body End -->
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!-- Recent Transaction End -->
+    <!-- Modal -->
+    <div class="modal fade" id="MyModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body" id="myModalBody">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section PageScript
+{
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script>
+        function view(id) {
+            $.get("/Admin/Box/ShowBox/" + id, function (res) {
+
+                $("#MyModal").modal();
+                $("#myModalBody").html(res);
+
+            });
+        }
+    </script>
+    <script>
+
+        window.onload = function () {
+         var chart = new CanvasJS.Chart("chartContainer", {
+             theme: "dark2",
+	    animationEnabled: true,
+	    title: {
+		text: "نمودار فروش بسته های اگهی"
+	},
+	toolTip: {
+		shared: true
+	},
+	data: [{
+		type: "line",
+        name: "طلایی",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPoints1),
+	}, {
+		type: "line",
+		name: "نقره ای",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPoints2),
+	}, {
+		type: "line",
+		name: "برنز",
+		showInLegend: true,
+		dataPoints: @Html.Raw(ViewBag.DataPoints3),
+	}]
+});
+chart.render();
+
+}
+
+    </script>
+}

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<UscProject.Models.JobCategoryTB>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="page-title title-bg2">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <h2>شغل پیدا کنید</h2>
+            <ul>
+                <li>
+                    <a href="index.html">صفحه اصلی</a>
+                </li>
+                <li>شغل پیدا کنید</li>
+            </ul>
+        </div>
+    </div>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</section>
+<!-- Page Title End -->
+<!-- Find Section Start -->
+<div class="find-section ptb-100">
+    <div class="container">
+        <form class="find-form mt-0" method="get" action="/Search/Index">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="JobDescRiption" name="JobDescRiption" placeholder="عنوان شغلی یا کلمه کلیدی">
+                        <i class="bx bx-search-alt"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Location" name="Location" placeholder="موقعیت">
+                        <i class="bx bx-location-plus"></i>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <select name="CategorySelected" class="category">
+                        <option data-display="دسته بندی">دسته بندی</option>
+                        @foreach (var item in Model)
+                        {
+                          <option value="@item.JobID">@item.JobCategory</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <button type="submit" class="find-btn">
+                        شغل پیدا کنید
+                        <i class='bx bx-search'></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Find Section End -->
+<!-- Job Category Section Start -->
+<div class="category-style-two pb-70">
+    <div class="container">
+        <div class="section-title">
+            <h2>دسته مشاغل محبوب</h2>
+            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده است.</p>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-6">
+                    <a >
+                        <div class="category-item">
+                            <i class="flaticon-wrench-and-screwdriver-in-cross"></i>
+                            <h3>@item.JobCategory</h3>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- Job Category Section End -->
+<!-- Jobs Section Start -->
+<section class="job-section pb-70">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>مشاغلی که ممکن است در آن علاقمند باشید</h2>
+        </div>
+        @Html.Action("Result", "Search")
+    </div>
+</section>
+<!-- Jobs Section End -->
+

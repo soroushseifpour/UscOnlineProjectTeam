@@ -1,0 +1,169 @@
+﻿
+@model UscProject.Models.UserTB
+@{
+    string path;
+    if (Model.ImageName == true)
+    {
+        path = Url.Content("~/Files/UserPictures/Custom/Karfarma/" + Model.PictureName);
+    }
+    else
+    {
+        path = Url.Content("~/Files/UserPictures/Default/UserProfile.jpg");
+    }
+}
+<div class="header-section" style="z-index:2">
+    <div class="container-fluid">
+        <div class="row justify-content-between align-items-center">
+
+            <!-- Header Logo (Header Left) Start -->
+            <div class="header-logo col-auto">
+                <a href="index.html">
+                    <img src="~/Areas/KarFarma/Content/assets/images/logo/logo.png" alt="">
+                    <img src="~/Areas/KarFarma/Content/assets/images/logo/logo-light.png" class="logo-light" alt="">
+                </a>
+            </div><!-- Header Logo (Header Left) End -->
+            <!-- Header Right Start -->
+            <div class="header-right flex-grow-1 col-auto">
+                <div class="row justify-content-between align-items-center">
+
+                    <!-- Side Header Toggle & Search Start -->
+                    <div class="col-auto">
+                        <div class="row align-items-center">
+
+                            <!--Side Header Toggle-->
+                            <div class="col-auto"><button class="side-header-toggle"><i class="zmdi zmdi-menu"></i></button></div>
+
+                            <!--Header Search-->
+
+                        </div>
+                    </div><!-- Side Header Toggle & Search End -->
+                    <!-- Header Notifications Area Start -->
+                    <div class="col-auto">
+
+                        <ul class="header-notification-area">
+
+                            @*Notification
+                                <li class="adomx-dropdown col-auto">
+                                    <a class="toggle" href="#"><i class="zmdi zmdi-notifications"></i><span class="badge"></span></a>
+
+                                     Dropdown
+                                    <div class="adomx-dropdown-menu dropdown-menu-notifications">
+                                        <div class="head">
+                                            <h5 class="title">شما 4 اعلان جدید دارید.</h5>
+                                        </div>
+                                        <div class="body custom-scroll">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-notifications-none"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-block"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-info-outline"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-shield-security"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-notifications-none"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-block"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-info-outline"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-shield-security"></i>
+                                                        <p>تغییرات زیادی در صفحات وجود دارد.</p>
+                                                        <span>قبل ظهر 11:00   امروز</span>
+                                                    </a>
+                                                    <button class="delete"><i class="zmdi zmdi-close-circle-o"></i></button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="footer">
+                                            <a href="#" class="view-all">مشاهده همه</a>
+                                        </div>
+                                    </div>
+
+                                </li>*@
+
+                            <!--User-->
+                            <li class="adomx-dropdown col-auto">
+                                <a class="toggle" href="#">
+                                    <span class="user">
+                                        <span class="avatar">
+                                            <img src="@path" alt="">
+                                            <span class="status"></span>
+                                        </span>
+                                        <span class="name">@Model.UserName</span>
+                                    </span>
+                                </a>
+
+                                <!-- Dropdown -->
+                                <div class="adomx-dropdown-menu dropdown-menu-user">
+                                    <div class="head">
+                                        <h5 class="name"><a href="#">@Model.UserName</a></h5>
+                                        <a class="mail" href="#">@Model.Email</a>
+                                    </div>
+                                    <div class="body">
+                                        <ul>
+                                            <li><a href="/KarFarma/Panel/PersonalInformation"><i class="zmdi zmdi-account"></i>پروفایل</a></li>
+                                            <li><a href="/KarFarma/Panel/Index"><i class="zmdi zmdi-wallpaper"></i>فعالیت</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a href="/LogOut"><i class="zmdi zmdi-lock-open"></i>خروج</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                    </div><!-- Header Notifications Area End -->
+
+                </div>
+            </div><!-- Header Right End -->
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A29F29FA-6C0F-4D80-9533-B06B87F9242C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UscProject</RootNamespace>
+    <AssemblyName>UscProject</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44308</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel, Version=4.4.0.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.4.4.0\lib\net472\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityServer4.Storage, Version=4.1.1.0, Culture=neutral, PublicKeyToken=f294d0afe402bb2b, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityServer4.Storage.4.1.1\lib\netstandard2.0\IdentityServer4.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BoxController.cs" />
+    <Compile Include="Areas\Admin\Controllers\JobsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KarFarmaController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KarJoController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
+    <Compile Include="Areas\Admin\ViewModels\contact_comment_vm.cs" />
+    <Compile Include="Areas\Admin\ViewModels\KarjoInformation.cs" />
+    <Compile Include="Areas\Admin\ViewModels\DataPoint.cs" />
+    <Compile Include="Areas\Admin\ViewModels\KarfarmaDetails.cs" />
+    <Compile Include="Areas\Admin\ViewModels\KarfarmaInformations.cs" />
+    <Compile Include="Areas\Admin\ViewModels\ShowKarjoInformation.cs" />
+    <Compile Include="Areas\Admin\ViewModels\spineline\DataPoint.cs" />
+    <Compile Include="Areas\KarFarma\Controllers\FormsController.cs" />
+    <Compile Include="Areas\KarFarma\Controllers\OrderController.cs" />
+    <Compile Include="Areas\KarFarma\Controllers\PanelController.cs" />
+    <Compile Include="Areas\KarFarma\Controllers\ResumeController.cs" />
+    <Compile Include="Areas\KarFarma\KarFarmaAreaRegistration.cs" />
+    <Compile Include="Areas\KarFarma\ViewModel\EditForms.cs" />
+    <Compile Include="Areas\KarFarma\ViewModel\FormTables.cs" />
+    <Compile Include="Areas\KarFarma\ViewModel\OrderDetails.cs" />
+    <Compile Include="Areas\KarFarma\ViewModel\ResumeTables.cs" />
+    <Compile Include="Areas\KarFarma\ViewModel\ShoppingList.cs" />
+    <Compile Include="Areas\KarJo\Controllers\FormController.cs" />
+    <Compile Include="Areas\KarJo\Controllers\PanelController.cs" />
+    <Compile Include="Areas\KarJo\Controllers\ResumeController.cs" />
+    <Compile Include="Areas\KarJo\KarJoAreaRegistration.cs" />
+    <Compile Include="Areas\KarJo\ViewModel\FormTable.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BoxController.cs" />
+    <Compile Include="Controllers\CandidateController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Utility.cs" />
+    <Compile Include="Help\ViewHelper.cs" />
+    <Compile Include="Models\BoxCategory.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CommentTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployeeTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EmployerTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormDetailTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\JobCategoryTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineProjectUSC.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineProjectUSC.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineProjectUSC.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineProjectUSC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlineProjectUSC.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetailTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResumeEmployeeTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResumesHasSentForEachKarFarm_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResumeTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheAmountOfSaleBaseYear_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheFormsOFEachResumeFinal_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheFormsOFEachResume_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheResumeForEmployees_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheTop5Employee.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheTotallFormsAfterTheLastOrderForEmployee_finallversion_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheTotallFormsAfterTheLastOrderOfEmployee_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheTotallFormsOfKarfarma_Result.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TheTotallPriceOfEach.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserTB.cs">
+      <DependentUpon>OnlineProjectUSC.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\MyEshopRoleProvider.cs" />
+    <Compile Include="ViewModel\Accountvm.cs" />
+    <Compile Include="ViewModel\Candidatesvm.cs" />
+    <Compile Include="ViewModel\Categoryvm.cs" />
+    <Compile Include="ViewModel\Companiesvm.cs" />
+    <Compile Include="ViewModel\Indexvm.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Content\assets\css\helper.css" />
+    <Content Include="Areas\Admin\Content\assets\css\plugins\plugins.css" />
+    <Content Include="Areas\Admin\Content\assets\css\style-primary.css" />
+    <Content Include="Areas\Admin\Content\assets\css\style.css" />
+    <Content Include="Areas\Admin\Content\assets\css\vendor\bootstrap.min.css" />
+    <Content Include="Areas\Admin\Content\assets\css\vendor\cryptocurrency-icons.css" />
+    <Content Include="Areas\Admin\Content\assets\css\vendor\font-awesome.min.css" />
+    <Content Include="Areas\Admin\Content\assets\css\vendor\material-design-iconic-font.min.css" />
+    <Content Include="Areas\Admin\Content\assets\css\vendor\themify-icons.css" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-icons.svg" />
+    <Content Include="Areas\Admin\Content\assets\fonts\dropify.svg" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Areas\Admin\Content\assets\fonts\themify9f24.svg" />
+    <Content Include="Areas\Admin\Content\assets\images\avatar\avatar-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\avatar\avatar-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\avatar\profile.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\author-top-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\header-mail-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\login-register-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\pricing-four-head-1-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\pricing-four-head-2-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\pricing-four-head-3-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\pricing-four-head-4-bg.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\bg\video-1-poster.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-10.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-11.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-12.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-5.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-6.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-7.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-8.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\carousel\carousel-9.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-5.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-6.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-7.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-8.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\comment\comment-9.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\error\error-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\error\error-2.png" />
+    <Content Include="Areas\Admin\Content\assets\images\favicon.ico" />
+    <Content Include="Areas\Admin\Content\assets\images\flags\flag-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\flags\flag-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\flags\flag-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\flags\flag-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\gallery\profile-gallery-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\gallery\profile-gallery-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\gallery\profile-gallery-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\gallery\profile-gallery-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\gallery\profile-gallery-video-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\cryptocurrency-top-sale-report-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\cryptocurrency-top-sale-report-2.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\cryptocurrency-top-sale-report-3.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\cryptocurrency-top-sale-report-4.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\doc.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pdf.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-four-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-four-2.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-four-3.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-four-4.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-one-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-one-2.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-one-3.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-two-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-two-2.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\pricing-two-3.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\select-arrow-down.png" />
+    <Content Include="Areas\Admin\Content\assets\images\icons\zip.png" />
+    <Content Include="Areas\Admin\Content\assets\images\logo\logo-light.png" />
+    <Content Include="Areas\Admin\Content\assets\images\logo\logo.png" />
+    <Content Include="Areas\Admin\Content\assets\images\mail\attach-1.png" />
+    <Content Include="Areas\Admin\Content\assets\images\product\list-product-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\product\list-product-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\product\list-product-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\product\list-product-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\product\list-product-5.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\ShowStdPic.gif" />
+    <Content Include="Areas\Admin\Content\assets\images\team\team-small-1.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\team\team-small-2.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\team\team-small-3.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\team\team-small-4.jpg" />
+    <Content Include="Areas\Admin\Content\assets\images\team\team-small-5.jpg" />
+    <Content Include="Areas\Admin\Content\assets\js\main.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\bootstrap-select\bootstrapSelect.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\chartjs\Chart.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\chartjs\chartjs.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\clipboard\clipboard.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\clipboard\clipboard.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\datatables\datatables.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\datatables\datatables.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\daterangepicker\daterangepicker.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\dropify\dropify.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\dropify\dropify.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\echarts\echarts.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\echarts\echarts.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\filepond\filepond-plugin-image-exif-orientation.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\filepond\filepond-plugin-image-preview.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\filepond\filepond.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\filepond\filepond.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\footable\footable.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\footable\footable.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\fullcalendar\fullcalendar.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\google-chart\google-chart.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\google-chart\google-chart.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\google-map\googlemap.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\inputmask\bootstrap-inputmask.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\jsgrid\jsgrid-db.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\jsgrid\jsgrid.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\jsgrid\jsgrid.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\moment\moment.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\morris\morris.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\morris\morris.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\nice-select\jquery.nice-select.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\nice-select\niceSelect.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\perfect-scrollbar.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\plyr\plyr.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\plyr\plyr.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\quill\quill.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\quill\quill.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\raphael\raphael.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\raty\jquery.raty.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\raty\raty.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\select2\select2.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\select2\select2.full.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\smartWizard\jquery.smartWizard.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\smartWizard\smartWizard.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sortable\sortable.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sortable\sortable.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sparkline\sparkline.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\summernote\summernote-bs4.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\summernote\summernote.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sweetalert\sweetalert.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\tippy4.min.js.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\toastr\toastr.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\toastr\toastr.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\jquery.vmap.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\jquery.vmap.world.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\maps\samples\jquery.vmap.sampledata.js" />
+    <Content Include="Areas\Admin\Content\assets\js\plugins\vmap\vmap.active.js" />
+    <Content Include="Areas\Admin\Content\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\vendor\modernizr-3.6.0.min.js" />
+    <Content Include="Areas\Admin\Content\assets\js\vendor\popper.min.js" />
+    <Content Include="Areas\Admin\Content\assets\media\audio-1.mp3" />
+    <Content Include="Areas\Admin\Content\assets\media\video-1-1080p.mp4" />
+    <Content Include="Areas\Admin\Content\assets\media\video-1-576p.mp4" />
+    <Content Include="Areas\Admin\Content\assets\media\video-1-720p.mp4" />
+    <Content Include="Areas\Admin\Content\assets\AjaxForm\jquery.form.js" />
+    <Content Include="Areas\Admin\Content\assets\AjaxForm\jquery.form.min.js" />
+    <Content Include="Areas\Admin\Content\assets\MyChart\canvasjs.min.js" />
+    <Content Include="Areas\Admin\Content\assets\MyChart\Chart.min.js" />
+    <Content Include="Areas\Admin\Content\assets\MyChart\utils.js" />
+    <Content Include="Areas\KarFarma\Content\assets\AjaxForm\jquery.form.js" />
+    <Content Include="Areas\KarFarma\Content\assets\AjaxForm\jquery.form.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\css\helper.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\plugins\plugins.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\style-primary.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\style.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\vendor\bootstrap.min.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\vendor\cryptocurrency-icons.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\vendor\font-awesome.min.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\vendor\material-design-iconic-font.min.css" />
+    <Content Include="Areas\KarFarma\Content\assets\css\vendor\themify-icons.css" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-icons.svg" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\dropify.svg" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\themify9f24.svg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\avatar\avatar-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\avatar\avatar-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\avatar\profile.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\author-top-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\header-mail-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\login-register-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\pricing-four-head-1-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\pricing-four-head-2-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\pricing-four-head-3-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\pricing-four-head-4-bg.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\bg\video-1-poster.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-10.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-11.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-12.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-5.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-6.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-7.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-8.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\carousel\carousel-9.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-5.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-6.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-7.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-8.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\comment\comment-9.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\error\error-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\error\error-2.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\favicon.ico" />
+    <Content Include="Areas\KarFarma\Content\assets\images\flags\flag-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\flags\flag-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\flags\flag-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\flags\flag-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\gallery\profile-gallery-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\gallery\profile-gallery-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\gallery\profile-gallery-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\gallery\profile-gallery-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\gallery\profile-gallery-video-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\cryptocurrency-top-sale-report-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\cryptocurrency-top-sale-report-2.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\cryptocurrency-top-sale-report-3.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\cryptocurrency-top-sale-report-4.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\doc.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pdf.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-four-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-four-2.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-four-3.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-four-4.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-one-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-one-2.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-one-3.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-two-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-two-2.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\pricing-two-3.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\select-arrow-down.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\icons\zip.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\logo\logo-light.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\logo\logo.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\mail\attach-1.png" />
+    <Content Include="Areas\KarFarma\Content\assets\images\product\list-product-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\product\list-product-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\product\list-product-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\product\list-product-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\product\list-product-5.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\ShowStdPic.gif" />
+    <Content Include="Areas\KarFarma\Content\assets\images\team\team-small-1.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\team\team-small-2.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\team\team-small-3.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\team\team-small-4.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\images\team\team-small-5.jpg" />
+    <Content Include="Areas\KarFarma\Content\assets\js\main.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\bootstrap-select\bootstrapSelect.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\chartjs\Chart.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\chartjs\chartjs.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\clipboard\clipboard.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\clipboard\clipboard.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\datatables\datatables.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\datatables\datatables.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\daterangepicker\daterangepicker.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\dropify\dropify.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\dropify\dropify.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\echarts\echarts.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\echarts\echarts.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\filepond\filepond-plugin-image-exif-orientation.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\filepond\filepond-plugin-image-preview.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\filepond\filepond.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\filepond\filepond.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\footable\footable.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\footable\footable.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\fullcalendar\fullcalendar.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\google-chart\google-chart.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\google-chart\google-chart.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\google-map\googlemap.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\inputmask\bootstrap-inputmask.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\jsgrid\jsgrid-db.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\jsgrid\jsgrid.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\jsgrid\jsgrid.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\moment\moment.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\morris\morris.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\morris\morris.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\nice-select\jquery.nice-select.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\nice-select\niceSelect.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\perfect-scrollbar.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\plyr\plyr.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\plyr\plyr.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\quill\quill.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\quill\quill.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\raphael\raphael.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\raty\jquery.raty.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\raty\raty.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\select2\select2.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\select2\select2.full.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\smartWizard\jquery.smartWizard.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\smartWizard\smartWizard.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sortable\sortable.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sortable\sortable.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sparkline\sparkline.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\summernote\summernote-bs4.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\summernote\summernote.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sweetalert\sweetalert.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\tippy4.min.js.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\toastr\toastr.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\toastr\toastr.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\jquery.vmap.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\jquery.vmap.world.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\maps\samples\jquery.vmap.sampledata.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\plugins\vmap\vmap.active.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\vendor\modernizr-3.6.0.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\js\vendor\popper.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\media\audio-1.mp3" />
+    <Content Include="Areas\KarFarma\Content\assets\media\video-1-1080p.mp4" />
+    <Content Include="Areas\KarFarma\Content\assets\media\video-1-576p.mp4" />
+    <Content Include="Areas\KarFarma\Content\assets\media\video-1-720p.mp4" />
+    <Content Include="Areas\KarFarma\Content\assets\MyChart\canvasjs.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\MyChart\Chart.min.js" />
+    <Content Include="Areas\KarFarma\Content\assets\MyChart\utils.js" />
+    <Content Include="Areas\KarJo\Content\assets\AjaxForm\jquery.form.js" />
+    <Content Include="Areas\KarJo\Content\assets\AjaxForm\jquery.form.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\css\helper.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\plugins\plugins.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\style-primary.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\style.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\vendor\bootstrap.min.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\vendor\cryptocurrency-icons.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\vendor\font-awesome.min.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\vendor\material-design-iconic-font.min.css" />
+    <Content Include="Areas\KarJo\Content\assets\css\vendor\themify-icons.css" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-icons.svg" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\dropify.svg" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\themify9f24.svg" />
+    <Content Include="Areas\KarJo\Content\assets\images\avatar\avatar-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\avatar\avatar-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\avatar\profile.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\author-top-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\header-mail-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\login-register-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\pricing-four-head-1-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\pricing-four-head-2-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\pricing-four-head-3-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\pricing-four-head-4-bg.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\bg\video-1-poster.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-10.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-11.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-12.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-5.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-6.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-7.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-8.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\carousel\carousel-9.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-5.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-6.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-7.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-8.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\comment\comment-9.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\error\error-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\error\error-2.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\favicon.ico" />
+    <Content Include="Areas\KarJo\Content\assets\images\flags\flag-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\flags\flag-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\flags\flag-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\flags\flag-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\gallery\profile-gallery-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\gallery\profile-gallery-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\gallery\profile-gallery-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\gallery\profile-gallery-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\gallery\profile-gallery-video-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\cryptocurrency-top-sale-report-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\cryptocurrency-top-sale-report-2.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\cryptocurrency-top-sale-report-3.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\cryptocurrency-top-sale-report-4.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\doc.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pdf.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-four-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-four-2.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-four-3.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-four-4.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-one-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-one-2.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-one-3.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-two-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-two-2.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\pricing-two-3.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\select-arrow-down.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\icons\zip.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\logo\logo-light.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\logo\logo.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\mail\attach-1.png" />
+    <Content Include="Areas\KarJo\Content\assets\images\product\list-product-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\product\list-product-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\product\list-product-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\product\list-product-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\product\list-product-5.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\ShowStdPic.gif" />
+    <Content Include="Areas\KarJo\Content\assets\images\team\team-small-1.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\team\team-small-2.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\team\team-small-3.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\team\team-small-4.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\images\team\team-small-5.jpg" />
+    <Content Include="Areas\KarJo\Content\assets\js\main.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\bootstrap-select\bootstrapSelect.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\chartjs\Chart.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\chartjs\chartjs.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\clipboard\clipboard.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\clipboard\clipboard.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\datatables\datatables.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\datatables\datatables.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\daterangepicker\daterangepicker.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\dropify\dropify.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\dropify\dropify.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\echarts\echarts.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\echarts\echarts.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\filepond\filepond-plugin-image-exif-orientation.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\filepond\filepond-plugin-image-preview.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\filepond\filepond.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\filepond\filepond.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\footable\footable.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\footable\footable.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\fullcalendar\fullcalendar.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\google-chart\google-chart.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\google-chart\google-chart.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\google-map\googlemap.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\inputmask\bootstrap-inputmask.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\ion-rangeslider\ion.rangeSlider.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\jsgrid\jsgrid-db.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\jsgrid\jsgrid.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\jsgrid\jsgrid.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\moment\moment.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\morris\morris.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\morris\morris.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\nice-select\jquery.nice-select.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\nice-select\niceSelect.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\perfect-scrollbar.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\plyr\plyr.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\plyr\plyr.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\quill\quill.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\quill\quill.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\raphael\raphael.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\raty\jquery.raty.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\raty\raty.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\select2\select2.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\select2\select2.full.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\smartWizard\jquery.smartWizard.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\smartWizard\smartWizard.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sortable\sortable.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sortable\sortable.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sparkline\sparkline.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\summernote\summernote-bs4.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\summernote\summernote.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sweetalert\sweetalert.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\tippy4.min.js.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\toastr\toastr.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\toastr\toastr.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\jquery.vmap.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.africa.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.asia.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.australia.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\continents\jquery.vmap.europe.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\jquery.vmap.world.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\maps\samples\jquery.vmap.sampledata.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\plugins\vmap\vmap.active.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\vendor\bootstrap.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\vendor\jquery-3.3.1.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\vendor\modernizr-3.6.0.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\js\vendor\popper.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\media\audio-1.mp3" />
+    <Content Include="Areas\KarJo\Content\assets\media\video-1-1080p.mp4" />
+    <Content Include="Areas\KarJo\Content\assets\media\video-1-576p.mp4" />
+    <Content Include="Areas\KarJo\Content\assets\media\video-1-720p.mp4" />
+    <Content Include="Areas\KarJo\Content\assets\MyChart\canvasjs.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\MyChart\Chart.min.js" />
+    <Content Include="Areas\KarJo\Content\assets\MyChart\utils.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content_site\assets\css\bootstrap.min.css" />
+    <Content Include="Content_site\assets\css\boxicon.min.css" />
+    <Content Include="Content_site\assets\css\magnific-popup.css" />
+    <Content Include="Content_site\assets\css\meanmenu.css" />
+    <Content Include="Content_site\assets\css\nice-select.css" />
+    <Content Include="Content_site\assets\css\owl.carousel.min.css" />
+    <Content Include="Content_site\assets\css\owl.theme.default.min.css" />
+    <Content Include="Content_site\assets\css\responsive.css" />
+    <Content Include="Content_site\assets\css\rtl.css" />
+    <Content Include="Content_site\assets\css\style.css" />
+    <Content Include="Content_site\assets\css\Vazir-FD.css" />
+    <Content Include="Content_site\assets\fonts\flaticon\flaticon.css" />
+    <Content Include="Content_site\assets\img\404.png" />
+    <Content Include="Content_site\assets\img\about.jpg" />
+    <Content Include="Content_site\assets\img\account.jpg" />
+    <Content Include="Content_site\assets\img\banner\1.jpg" />
+    <Content Include="Content_site\assets\img\banner\2.jpg" />
+    <Content Include="Content_site\assets\img\banner\3.jpg" />
+    <Content Include="Content_site\assets\img\banner\4.jpg" />
+    <Content Include="Content_site\assets\img\banner\5.jpg" />
+    <Content Include="Content_site\assets\img\banner\banner-img.png" />
+    <Content Include="Content_site\assets\img\banner\white-shape.png" />
+    <Content Include="Content_site\assets\img\blog\1.jpg" />
+    <Content Include="Content_site\assets\img\blog\2.jpg" />
+    <Content Include="Content_site\assets\img\blog\3.jpg" />
+    <Content Include="Content_site\assets\img\blog\4.jpg" />
+    <Content Include="Content_site\assets\img\blog\5.jpg" />
+    <Content Include="Content_site\assets\img\blog\6.jpg" />
+    <Content Include="Content_site\assets\img\blog\blog-details.jpg" />
+    <Content Include="Content_site\assets\img\blog\blog-details2.jpg" />
+    <Content Include="Content_site\assets\img\blog\blog-details3.jpg" />
+    <Content Include="Content_site\assets\img\blog\popular-post1.jpg" />
+    <Content Include="Content_site\assets\img\blog\popular-post2.jpg" />
+    <Content Include="Content_site\assets\img\blog\popular-post3.jpg" />
+    <Content Include="Content_site\assets\img\blog\popular-post4.jpg" />
+    <Content Include="Content_site\assets\img\candidate\1.jpg" />
+    <Content Include="Content_site\assets\img\candidate\2.jpg" />
+    <Content Include="Content_site\assets\img\candidate\3.jpg" />
+    <Content Include="Content_site\assets\img\candidate\4.jpg" />
+    <Content Include="Content_site\assets\img\candidate\5.jpg" />
+    <Content Include="Content_site\assets\img\candidate\6.jpg" />
+    <Content Include="Content_site\assets\img\candidate\7.jpg" />
+    <Content Include="Content_site\assets\img\candidate\8.jpg" />
+    <Content Include="Content_site\assets\img\choose.png" />
+    <Content Include="Content_site\assets\img\client-1.png" />
+    <Content Include="Content_site\assets\img\client-2.png" />
+    <Content Include="Content_site\assets\img\company-logo\1.png" />
+    <Content Include="Content_site\assets\img\company-logo\2.png" />
+    <Content Include="Content_site\assets\img\company-logo\3.png" />
+    <Content Include="Content_site\assets\img\company-logo\4.png" />
+    <Content Include="Content_site\assets\img\company-logo\5.png" />
+    <Content Include="Content_site\assets\img\company-logo\6.png" />
+    <Content Include="Content_site\assets\img\discover.png" />
+    <Content Include="Content_site\assets\img\favicon.png" />
+    <Content Include="Content_site\assets\img\grow-img.jpg" />
+    <Content Include="Content_site\assets\img\how-works.png" />
+    <Content Include="Content_site\assets\img\location\1.jpg" />
+    <Content Include="Content_site\assets\img\location\2.jpg" />
+    <Content Include="Content_site\assets\img\location\3.jpg" />
+    <Content Include="Content_site\assets\img\location\4.jpg" />
+    <Content Include="Content_site\assets\img\location\5.jpg" />
+    <Content Include="Content_site\assets\img\location\6.jpg" />
+    <Content Include="Content_site\assets\img\logo.png" />
+    <Content Include="Content_site\assets\img\mobile.png" />
+    <Content Include="Content_site\assets\img\section-bg\1.jpg" />
+    <Content Include="Content_site\assets\img\section-bg\2.jpg" />
+    <Content Include="Content_site\assets\img\section-bg\3.jpg" />
+    <Content Include="Content_site\assets\img\shape\app.png" />
+    <Content Include="Content_site\assets\img\shape\banner.png" />
+    <Content Include="Content_site\assets\img\shape\footer.png" />
+    <Content Include="Content_site\assets\img\shape\job.png" />
+    <Content Include="Content_site\assets\img\shape\price.png" />
+    <Content Include="Content_site\assets\img\shape\why-choose.png" />
+    <Content Include="Content_site\assets\img\testimonial-img-2.jpg" />
+    <Content Include="Content_site\assets\img\testimonial-img.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\1.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\10.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\11.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\12.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\13.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\14.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\15.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\16.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\17.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\18.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\19.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\2.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\20.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\21.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\22.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\23.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\24.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\3.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\4.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\5.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\6.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\7.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\8.jpg" />
+    <Content Include="Content_site\assets\img\title-bg\9.jpg" />
+    <Content Include="Content_site\assets\img\top-company\1.png" />
+    <Content Include="Content_site\assets\img\top-company\2.png" />
+    <Content Include="Content_site\assets\img\top-company\3.png" />
+    <Content Include="Content_site\assets\img\top-company\4.png" />
+    <Content Include="Content_site\assets\img\top-company\5.png" />
+    <Content Include="Content_site\assets\img\top-company\6.png" />
+    <Content Include="Content_site\assets\img\top-company\7.png" />
+    <Content Include="Content_site\assets\img\top-company\8.png" />
+    <Content Include="Content_site\assets\img\why.choose.jpg" />
+    <Content Include="Content_site\assets\js\bootstrap.min.js" />
+    <Content Include="Content_site\assets\js\contact-form-script.js" />
+    <Content Include="Content_site\assets\js\custom.js" />
+    <Content Include="Content_site\assets\js\form-validator.min.js" />
+    <Content Include="Content_site\assets\js\jquery-3.5.0.min.js" />
+    <Content Include="Content_site\assets\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Content_site\assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content_site\assets\js\jquery.nice-select.min.js" />
+    <Content Include="Content_site\assets\js\meanmenu.js" />
+    <Content Include="Content_site\assets\js\owl.carousel.min.js" />
+    <Content Include="Content_site\assets\js\popper.min.js" />
+    <Content Include="Content_site\assets\php\form-process.php" />
+    <Content Include="favicon.ico" />
+    <Content Include="Files\UserPictures\Default\UserProfile.jpg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\OnlineProjectUSC.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OnlineProjectUSC.Context.cs</LastGenOutput>
+      <DependentUpon>OnlineProjectUSC.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\OnlineProjectUSC.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OnlineProjectUSC.edmx</DependentUpon>
+      <LastGenOutput>OnlineProjectUSC.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\OnlineProjectUSC.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OnlineProjectUSC.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\OnlineProjectUSC.edmx.diagram">
+      <DependentUpon>OnlineProjectUSC.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\KarFarma\Views\web.config" />
+    <Content Include="Areas\KarJo\Views\web.config" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-icons.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-icons.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-icons.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-icons.woff2" />
+    <Content Include="Areas\Admin\Content\assets\fonts\cryptocurrency-iconsd41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\dropify.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\dropify.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\dropify.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Areas\Admin\Content\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Areas\Admin\Content\assets\fonts\summernotec360.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\summernotec360.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\summernotec360.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\themify9f24.eot" />
+    <Content Include="Areas\Admin\Content\assets\fonts\themify9f24.ttf" />
+    <Content Include="Areas\Admin\Content\assets\fonts\themify9f24.woff" />
+    <Content Include="Areas\Admin\Content\assets\fonts\themifyd41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\font\IRANSansWeb_Light.eot" />
+    <Content Include="Areas\Admin\Content\assets\font\IRANSansWeb_Light.ttf" />
+    <Content Include="Areas\Admin\Content\assets\font\IRANSansWeb_Light.woff" />
+    <Content Include="Areas\Admin\Content\assets\font\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\Admin\Content\assets\font\IRANSansWeb_Lightd41d.eot" />
+    <Content Include="Areas\Admin\Content\assets\images\flags\Thumbs.db" />
+    <Content Include="Areas\Admin\Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Panel\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Box\ShowBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Panel\PersonalInformation.cshtml" />
+    <Content Include="Areas\Admin\Views\KarFarma\KarfarmaTables.cshtml" />
+    <Content Include="Areas\Admin\Views\KarFarma\ShowKarfarmaDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\KarFarma\ShowFormsDetails.cshtml" />
+    <Content Include="Areas\Admin\Views\KarJo\KarjoTables.cshtml" />
+    <Content Include="Areas\Admin\Views\KarJo\ShowKarjoInformation.cshtml" />
+    <Content Include="Areas\Admin\Views\Box\Boxes.cshtml" />
+    <Content Include="Areas\Admin\Views\Panel\Header.cshtml" />
+    <Content Include="Areas\Admin\Views\Report\Reports.cshtml" />
+    <Content Include="Areas\Admin\Views\Box\AddNewBox.cshtml" />
+    <Content Include="Areas\Admin\Views\Box\EditBox.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Shared\_KarFarmaLayout.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Panel\Index.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Panel\Header.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Panel\PersonalInformation.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Forms\FormTables.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Forms\EditForms.cshtml" />
+    <Content Include="Areas\KarFarma\Content\assets\font\IRANSansWeb_Light.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\font\IRANSansWeb_Light.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\font\IRANSansWeb_Light.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\font\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\KarFarma\Content\assets\font\IRANSansWeb_Lightd41d.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-icons.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-icons.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-icons.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-icons.woff2" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\cryptocurrency-iconsd41d.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\dropify.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\dropify.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\dropify.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\summernotec360.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\summernotec360.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\summernotec360.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\themify9f24.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\themify9f24.ttf" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\themify9f24.woff" />
+    <Content Include="Areas\KarFarma\Content\assets\fonts\themifyd41d.eot" />
+    <Content Include="Areas\KarFarma\Content\assets\images\flags\Thumbs.db" />
+    <Content Include="Areas\KarFarma\Views\Order\ShoppingList.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Order\OrderDetails.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Forms\AddForms.cshtml" />
+    <Content Include="Areas\KarJo\Views\Panel\Index.cshtml" />
+    <Content Include="Areas\KarJo\Views\Shared\_KarJoLayout.cshtml" />
+    <Content Include="Areas\KarJo\Content\assets\font\IRANSansWeb_Light.eot" />
+    <Content Include="Areas\KarJo\Content\assets\font\IRANSansWeb_Light.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\font\IRANSansWeb_Light.woff" />
+    <Content Include="Areas\KarJo\Content\assets\font\IRANSansWeb_Light.woff2" />
+    <Content Include="Areas\KarJo\Content\assets\font\IRANSansWeb_Lightd41d.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-icons.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-icons.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-icons.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-icons.woff2" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\cryptocurrency-iconsd41d.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\dropify.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\dropify.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\dropify.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\summernotec360.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\summernotec360.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\summernotec360.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\themify9f24.eot" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\themify9f24.ttf" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\themify9f24.woff" />
+    <Content Include="Areas\KarJo\Content\assets\fonts\themifyd41d.eot" />
+    <Content Include="Areas\KarJo\Content\assets\images\flags\Thumbs.db" />
+    <Content Include="Areas\KarJo\Views\Panel\PersonalInformation.cshtml" />
+    <Content Include="Areas\KarJo\Views\Panel\Header.cshtml" />
+    <Content Include="Areas\KarJo\Views\Resume\EditResume.cshtml" />
+    <Content Include="Areas\KarJo\Views\Resume\NewResume.cshtml" />
+    <Content Include="Areas\KarJo\Views\Form\FormTables.cshtml" />
+    <Content Include="Areas\KarJo\Views\Form\ShowFormsDetails.cshtml" />
+    <Content Include="Content_site\assets\fonts\boxicons.eot" />
+    <Content Include="Content_site\assets\fonts\boxicons.woff" />
+    <Content Include="Content_site\assets\fonts\boxicons.woff2" />
+    <Content Include="Content_site\assets\fonts\flaticon\Flaticon.eot" />
+    <Content Include="Content_site\assets\fonts\flaticon\Flaticon.woff" />
+    <Content Include="Content_site\assets\fonts\flaticon\Flaticon.woff2" />
+    <Content Include="Content_site\assets\fonts\flaticon\Flaticond41d.eot" />
+    <Content Include="Content_site\assets\fonts\Vazir-FD.eot" />
+    <Content Include="Content_site\assets\fonts\Vazir-FD.ttf" />
+    <Content Include="Content_site\assets\fonts\Vazir-FD.woff" />
+    <Content Include="Content_site\assets\fonts\Vazir-FD.woff2" />
+    <Content Include="Areas\Admin\Views\Jobs\JobCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\EditJob.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\JobCategories.cshtml" />
+    <Content Include="Areas\Admin\Views\Jobs\AddJob.cshtml" />
+    <Content Include="Areas\Admin\Views\KarJo\ShowFormsDetails.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Forms\ShowFormsDetails.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Resume\ShowResumeDetails.cshtml" />
+    <Content Include="Areas\KarFarma\Views\Resume\ResumeTables.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\RegisterKarjo.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Candidate\Candidates.cshtml" />
+    <Content Include="Views\Candidate\CandidatesDetails.cshtml" />
+    <Content Include="Views\Home\Companies.cshtml" />
+    <Content Include="Views\Job\JobLists.cshtml" />
+    <Content Include="Views\Job\JobDetails.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\Result.cshtml" />
+    <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Box\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
+    <Content Include="Views\Account\RegisterKarfarma.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\KarFarma\Data\" />
+    <Folder Include="Areas\KarJo\Data\" />
+    <Folder Include="Files\UserPictures\Custom\Karfarma\" />
+    <Folder Include="Files\UserPictures\Custom\KarJo\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2626</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44308/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
